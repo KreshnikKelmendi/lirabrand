@@ -104,7 +104,7 @@ export default function Mission() {
         >
           <div className="mission-ribbon__segment mission-ribbon__segment--top">
             <Image
-              src="/assets/470691922_18365246707184030_5640793309400524623_n.PNG"
+              src="/assets/470691922_18365246707184030_5640793309400524623_n.png"
               alt="River in lush forest"
               fill
               className="mission-ribbon__image"

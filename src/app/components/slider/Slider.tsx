@@ -5,7 +5,7 @@ export default function Slider() {
     <div className="w-full h-[55vh] lg:h-screen relative overflow-hidden">
       {/* Mobile Image */}
       <Image
-        src="/assets/491432225_18380106025184030_4272445670178327441_n.PNG"
+        src="/assets/491432225_18380106025184030_4272445670178327441_n.png"
         alt="Main Slider Image"
         fill
         className="object-cover secondServiceImage lg:hidden"

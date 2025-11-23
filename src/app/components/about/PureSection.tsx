@@ -99,7 +99,7 @@ export default function PureSection() {
           >
             <div className="relative w-full h-full rounded-full overflow-hidden shadow-2xl">
               <Image
-                src="/assets/470691922_18365246707184030_5640793309400524623_n.PNG"
+                src="/assets/470691922_18365246707184030_5640793309400524623_n.png"
                 alt="Lira Brand Çaj"
                 fill
                 className="object-cover"

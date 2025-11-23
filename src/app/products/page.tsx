@@ -232,9 +232,9 @@ export default function ProductsPage() {
     {
       id: 1,
       images: [
-        "/assets/487786048_1265413888917456_4464519389769385379_n.PNG",
-        "/assets/491432225_18380106025184030_4272445670178327441_n.PNG",
-        "/assets/486351909_1262096785915833_2892762982646124264_n.PNG",
+        "/assets/487786048_1265413888917456_4464519389769385379_n.png",
+        "/assets/491432225_18380106025184030_4272445670178327441_n.png",
+        "/assets/486351909_1262096785915833_2892762982646124264_n.png",
       ],
       title: "Çaj i Zi",
       description: "Çaj i zi me cilësi të lartë, i përzgjedhur me kujdes nga lulezat më të mira. Shije e pasur dhe e thellë që sjell momente të këndshme çdo ditë.",
@@ -244,9 +244,9 @@ export default function ProductsPage() {
     {
       id: 2,
       images: [
-        "/assets/470691922_18365246707184030_5640793309400524623_n.PNG",
-        "/assets/481003953_8951385704973185_7027403104271619631_n.PNG",
-        "/assets/480902628_8959762224135533_7414829899089866025_n.PNG",
+        "/assets/470691922_18365246707184030_5640793309400524623_n.png",
+        "/assets/481003953_8951385704973185_7027403104271619631_n.png",
+        "/assets/480902628_8959762224135533_7414829899089866025_n.png",
       ],
       title: "Çaji Gold Premium",
       description: "Çaj premium me shije të rafinuar dhe aromë të veçantë. Kombinon traditën me inovacionin për një përvojë të përsosur.",
@@ -260,7 +260,7 @@ export default function ProductsPage() {
       {/* Fixed background image */}
       <div className="fixed inset-0 h-screen w-full z-0 pointer-events-none">
         <Image
-          src="/assets/480439334_8924090261036063_2163819683973204547_n.PNG"
+          src="/assets/480439334_8924090261036063_2163819683973204547_n.png"
           alt="Background"
           fill
           className="object-cover opacity-30 w-full"
