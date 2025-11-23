@@ -82,7 +82,7 @@ export default function ContactPage() {
       {/* Fixed background image */}
       <div className="fixed inset-0 h-screen w-full z-0 pointer-events-none">
         <Image
-          src="/assets/479181733_8886304488147974_4075276727795954463_n.png"
+          src="/assets/479181733_8886304488147974_4075276727795954463_n.PNG"
           alt="Background"
           fill
           className="object-cover opacity-30 w-full"

@@ -29,7 +29,7 @@ export default function SecondQuality() {
           >
             <div className="relative w-full h-full">
               <Image
-                src="/assets/220823091124-01-turkey-tea-rize-cup.jpg"
+                src="/assets/220823091124-01-turkey-tea-rize-cup.PNG"
                 alt="Lira Brand Natyral"
                 fill
                 className="object-cover"
@@ -248,7 +248,7 @@ export default function SecondQuality() {
           >
             <div className="relative w-full h-full">
               <Image
-                src="/assets/487786048_1265413888917456_4464519389769385379_n.jpg"
+                src="/assets/487786048_1265413888917456_4464519389769385379_n.PNG"
                 alt="Lira Brand Traditë"
                 fill
                 className="object-cover"
