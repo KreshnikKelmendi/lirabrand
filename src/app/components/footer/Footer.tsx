@@ -187,7 +187,7 @@ export default function Footer() {
         <div className="mt-8 pt-8 border-t border-gray-200/60">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-sm text-gray-600 text-center md:text-left font-armin font-bold leading-tight">
-              © {new Date().getFullYear()} LiraBrand. Të gjitha të drejtat e rezervuara.
+              © {new Date().getFullYear()} Lira Brand. Të gjitha të drejtat e rezervuara.
             </p>
             <div className="flex items-center space-x-6">
               <Link
