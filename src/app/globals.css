@@ -1,26 +1,65 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body{
+  background-color: #ffedde;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@font-face {
+  font-family: 'Foregen';
+  src: url('../../public/fonts/FontsFree-Net-TheForegenRoughOne.ttf');
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.font-foregen {
+  font-family: 'Foregen';
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@font-face {
+  font-family: 'Armin';
+  src: url('../../public/fonts/ArminGrotesk-Thin.ttf');
 }
+
+.font-armin {
+  font-family: 'Armin';
+}
+
+.firstServiceImage {
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, #ffedde 30%);
+  mask-image: linear-gradient(to top, transparent 0%, #ffedde 30%);
+}
+
+.mission-ribbon {
+  position: relative;
+  width: clamp(220px, 28vw, 360px);
+  height: clamp(460px, 60vw, 680px);
+}
+
+.mission-ribbon__segment {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.mission-ribbon__segment--top {
+  top: 0;
+  height: 55%;
+  clip-path: polygon(0 0, 100% 0, 100% 88%, 50% 100%, 0 88%);
+  border-bottom-left-radius: 180px;
+  border-bottom-right-radius: 180px;
+  box-shadow: 0 25px 60px rgba(20, 40, 70, 0.18);
+}
+
+.mission-ribbon__segment--bottom {
+  bottom: 0;
+  height: 55%;
+  clip-path: polygon(50% 0, 100% 12%, 100% 100%, 0 100%, 0 12%);
+  border-top-left-radius: 180px;
+  border-top-right-radius: 180px;
+  box-shadow: 0 -18px 50px rgba(20, 40, 70, 0.12);
+}
+
+.mission-ribbon__image {
+  object-fit: cover;
+}
+
+
