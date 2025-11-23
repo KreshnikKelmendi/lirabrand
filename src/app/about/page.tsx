@@ -50,7 +50,7 @@ export default function AboutPage() {
       <PureSection />
       
       {/* Centered text section below */}
-      <section className="w-full px-4 sm:px-6 lg:px-16">
+      <section className="w-full px-5 lg:px-16">
         <div className="max-w-4xl mx-auto" ref={textRef}>
           <motion.div
             initial="hidden"

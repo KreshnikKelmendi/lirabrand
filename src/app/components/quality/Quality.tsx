@@ -53,7 +53,7 @@ export default function Quality() {
 
   return (
     <section className="w-full py-12 sm:py-16 lg:py-20">
-      <div className="mx-auto px-4 sm:px-6 lg:px-16">
+      <div className="mx-auto px-5 lg:px-16">
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-foregen text-[#8B4513] mb-2">

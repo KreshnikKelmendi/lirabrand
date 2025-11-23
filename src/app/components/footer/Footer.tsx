@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="border-t-2 border-black/10 mx-4 lg:mx-16 mt-20">
+    <footer className="border-t-2 border-black/10 mx-5 lg:mx-16 mt-20">
       <div className="mx-auto py-12 lg:py-16">
         {/* Logo and Main Content */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 items-start">
@@ -25,14 +25,14 @@ export default function Footer() {
                 />
               </div>
             </Link>
-            <p className="text-sm text-gray-600 text-center md:text-left max-w-xs font-armin leading-tight">
+            <p className="text-sm text-gray-600 text-center md:text-left max-w-xs font-armin font-bold leading-tight">
               Cilësia dhe ekselenca në çdo produkt
             </p>
           </div>
 
           {/* Contact Information */}
           <div className="flex flex-col space-y-6 md:space-y-8">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2 font-armin leading-tight">Kontakti</h3>
+            <h3 className="text-lg font-bold text-gray-900 mb-2 font-armin leading-tight">Kontakti</h3>
             
             {/* Address */}
             <div className="flex flex-col sm:flex-row sm:items-start gap-3 group">
@@ -58,10 +58,10 @@ export default function Footer() {
                 </svg>
               </div>
               <div className="flex-1">
-                <p className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-1 font-armin leading-tight">
+                <p className="text-xs text-gray-500 uppercase tracking-wide mb-1 font-armin font-bold leading-tight">
                   Adresa
                 </p>
-                <p className="text-sm text-gray-700 leading-tight font-armin">
+                <p className="text-sm text-gray-700 leading-tight font-armin font-bold">
                   RR.Epopeja e Jezercit, Ferizaj, Kosovo, 70000
                 </p>
               </div>
@@ -85,12 +85,12 @@ export default function Footer() {
                 </svg>
               </div>
               <div className="flex-1">
-                <p className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-1 font-armin leading-tight">
+                <p className="text-xs text-gray-500 uppercase tracking-wide mb-1 font-armin font-bold leading-tight">
                   Mobil
                 </p>
                 <Link
                   href="tel:044779000"
-                  className="text-sm text-gray-700 hover:text-gray-900 transition-colors duration-300 inline-block font-armin leading-tight"
+                  className="text-sm text-gray-700 hover:text-gray-900 transition-colors duration-300 inline-block font-armin font-bold leading-tight"
                 >
                   044 779 000
                 </Link>
@@ -115,12 +115,12 @@ export default function Footer() {
                 </svg>
               </div>
               <div className="flex-1">
-                <p className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-1 font-armin leading-tight">
+                <p className="text-xs text-gray-500 uppercase tracking-wide mb-1 font-armin font-bold leading-tight">
                   Email
                 </p>
                 <Link
                   href="mailto:ntpshlira@yahoo.com"
-                  className="text-sm text-gray-700 hover:text-gray-900 transition-colors duration-300 inline-block break-all font-armin leading-tight"
+                  className="text-sm text-gray-700 hover:text-gray-900 transition-colors duration-300 inline-block break-all font-armin font-bold leading-tight"
                 >
                   ntpshlira@yahoo.com
                 </Link>
@@ -130,39 +130,39 @@ export default function Footer() {
 
           {/* Content Section */}
           <div className="flex flex-col space-y-4">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2 font-armin leading-tight">Përmbajtja</h3>
+            <h3 className="text-lg font-bold text-gray-900 mb-2 font-armin leading-tight">Përmbajtja</h3>
             <nav className="flex flex-col space-y-3">
               <Link
                 href="/"
-                className="text-sm text-gray-600 hover:text-gray-900 transition-all duration-300 group relative inline-block w-fit font-armin leading-tight"
+                className="text-sm text-gray-600 hover:text-gray-900 transition-all duration-300 group relative inline-block w-fit font-armin font-bold leading-tight"
               >
                 <span>Ballina</span>
                 <span className="absolute bottom-0 left-0 w-0 h-px bg-gray-900 transition-all duration-300 group-hover:w-full"></span>
               </Link>
               <Link
                 href="/about"
-                className="text-sm text-gray-600 hover:text-gray-900 transition-all duration-300 group relative inline-block w-fit font-armin leading-tight"
+                className="text-sm text-gray-600 hover:text-gray-900 transition-all duration-300 group relative inline-block w-fit font-armin font-bold leading-tight"
               >
                 <span>Rreth Nesh</span>
                 <span className="absolute bottom-0 left-0 w-0 h-px bg-gray-900 transition-all duration-300 group-hover:w-full"></span>
               </Link>
               <Link
                 href="/benefitet-e-cajit"
-                className="text-sm text-gray-600 hover:text-gray-900 transition-all duration-300 group relative inline-block w-fit font-armin leading-tight"
+                className="text-sm text-gray-600 hover:text-gray-900 transition-all duration-300 group relative inline-block w-fit font-armin font-bold leading-tight"
               >
                 <span>Benefitet e Çajit</span>
                 <span className="absolute bottom-0 left-0 w-0 h-px bg-gray-900 transition-all duration-300 group-hover:w-full"></span>
               </Link>
               <Link
                 href="/products"
-                className="text-sm text-gray-600 hover:text-gray-900 transition-all duration-300 group relative inline-block w-fit font-armin leading-tight"
+                className="text-sm text-gray-600 hover:text-gray-900 transition-all duration-300 group relative inline-block w-fit font-armin font-bold leading-tight"
               >
                 <span>Produktet</span>
                 <span className="absolute bottom-0 left-0 w-0 h-px bg-gray-900 transition-all duration-300 group-hover:w-full"></span>
               </Link>
               <Link
                 href="/contact"
-                className="text-sm text-gray-600 hover:text-gray-900 transition-all duration-300 group relative inline-block w-fit font-armin leading-tight"
+                className="text-sm text-gray-600 hover:text-gray-900 transition-all duration-300 group relative inline-block w-fit font-armin font-bold leading-tight"
               >
                 <span>Kontakti</span>
                 <span className="absolute bottom-0 left-0 w-0 h-px bg-gray-900 transition-all duration-300 group-hover:w-full"></span>
@@ -186,7 +186,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-8 pt-8 border-t border-gray-200/60">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-sm text-gray-600 text-center md:text-left font-armin leading-tight">
+            <p className="text-sm text-gray-600 text-center md:text-left font-armin font-bold leading-tight">
               © {new Date().getFullYear()} LiraBrand. Të gjitha të drejtat e rezervuara.
             </p>
             <div className="flex items-center space-x-6">

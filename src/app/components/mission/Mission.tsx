@@ -72,7 +72,7 @@ export default function Mission() {
 
   return (
     <section className="relative overflow-hidden bg-white py-16 sm:py-24 2xl:py-32">
-      <div className="mx-auto flex flex-col items-center gap-10 px-4 lg:px-16 lg:flex-row lg:items-start lg:gap-16">
+      <div className="mx-auto flex flex-col items-center gap-10 px-5 lg:px-16 lg:flex-row lg:items-start lg:gap-16">
         <motion.div
           ref={leftRef}
           initial="hidden"

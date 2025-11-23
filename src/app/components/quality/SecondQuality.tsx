@@ -18,7 +18,7 @@ export default function SecondQuality() {
   return (
     <section className="w-full relative overflow-hidden">
       {/* First Section: Image Left, Text Right */}
-      <div className=" mx-auto px-4 sm:px-6 lg:px-16" ref={ref1}>
+      <div className=" mx-auto px-5 lg:px-16" ref={ref1}>
         <div className="flex flex-col lg:flex-row items-stretch min-h-[500px] lg:min-h-[70vh]">
           {/* Left Side - Image */}
           <motion.div
@@ -131,7 +131,7 @@ export default function SecondQuality() {
       </div>
 
       {/* Second Section: Text Left, Image Right */}
-      <div className="mx-auto px-4 sm:px-6 lg:px-16" ref={ref2}>
+      <div className="mx-auto px-5 lg:px-16" ref={ref2}>
         <div className="flex flex-col lg:flex-row items-stretch min-h-[500px] lg:min-h-[70vh]">
           {/* Left Side - Text Panel with Fill Animation */}
           <motion.div

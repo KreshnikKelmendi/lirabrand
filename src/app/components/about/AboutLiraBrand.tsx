@@ -139,7 +139,7 @@ export default function AboutLiraBrand() {
 
   return (
     <section className="w-full relative overflow-hidden pt-12 lg:pt-20">
-      <div className="mx-auto px-4 sm:px-6 lg:px-16" ref={ref}>
+      <div className="mx-auto px-5 lg:px-16" ref={ref}>
         <div className="flex flex-col">
           {/* Text Content - Centered on Top */}
           <motion.div
@@ -194,7 +194,7 @@ export default function AboutLiraBrand() {
       </div>
 
       {/* Three Section Alternating Pattern: Image - BG with Text - Image */}
-      <div className="w-full px-4 sm:px-6 lg:px-16">
+      <div className="w-full px-5 lg:px-16">
         <div className="grid grid-cols-3">
           {imageTextImageItems.map((item, index) => (
             <motion.div
@@ -239,7 +239,7 @@ export default function AboutLiraBrand() {
       </div>
 
       {/* Three Section Pattern: Text - Image - Text */}
-      <div className="w-full px-4 sm:px-6 lg:px-16">
+      <div className="w-full px-5 lg:px-16">
         <div className="grid grid-cols-3">
           {textImageTextItems.map((item, index) => (
             <motion.div

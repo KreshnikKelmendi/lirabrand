@@ -30,8 +30,8 @@ export default function BenefitetECajitPage() {
       </div>
       
       {/* Content */}
-      <section className="relative z-10 w-full px-4 sm:px-6 lg:px-16 py-16">
-        <div className="max-w-7xl mx-auto">
+      <section className="relative z-10 w-full px-5 lg:px-16 py-16">
+        <div className="mx-auto">
           <h1 className="text-4xl font-bold mb-12 text-center font-foregen">Benefitet e Çajit<br />Lira Brand</h1>
           
           <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">

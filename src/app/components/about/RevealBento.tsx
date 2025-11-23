@@ -7,7 +7,7 @@ import { useInView } from "react-intersection-observer";
 
 export default function RevealBento() {
   return (
-    <div className=" px-4 lg:px-16  text-zinc-50">
+    <div className="px-5 lg:px-16  text-zinc-50">
       <motion.div
         initial="initial"
         animate="animate"

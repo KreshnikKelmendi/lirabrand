@@ -85,7 +85,7 @@ export default function ContactPage() {
           src="/assets/479181733_8886304488147974_4075276727795954463_n.png"
           alt="Background"
           fill
-          className="object-cover opacity-30 w-full"
+          className="object-cover opacity-20 w-full"
           priority
           sizes="100vw"
         />
@@ -94,8 +94,8 @@ export default function ContactPage() {
       {/* Content */}
       <div className="relative z-10">
         {/* Hero Section */}
-        <section className="w-full px-4 sm:px-6 lg:px-16 py-8 lg:py-12">
-          <div className="mx-auto max-w-7xl" ref={heroRef}>
+        <section className="w-full px-5 lg:px-16 py-8 lg:py-12">
+          <div className="mx-auto" ref={heroRef}>
             <motion.div
               initial="hidden"
               animate={heroInView ? "visible" : "hidden"}
@@ -112,8 +112,8 @@ export default function ContactPage() {
         </section>
 
         {/* Main Content Section - Split Layout */}
-        <section className="w-full px-4 sm:px-6 lg:px-16 pb-8" ref={contentRef}>
-          <div className="mx-auto max-w-7xl">
+        <section className="w-full px-5 lg:px-16 pb-8" ref={contentRef}>
+          <div className="mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
               {/* Left Side - Contact Information */}
               <motion.div
@@ -128,11 +128,11 @@ export default function ContactPage() {
                     Na Kontaktoni
                   </h2>
                   <div className="space-y-2">
-                    <p className="text-base sm:text-lg md:text-xl font-armin text-gray-700 leading-tight">
+                    <p className="text-base sm:text-lg md:text-xl font-armin text-amber-900 leading-tight">
                       Në Lira Brand, ne vlerësojmë komunikimin me klientët tanë. Nëse keni pyetje rreth produkteve tona, 
                       porosive, ose thjesht dëshironi të mësoni më shumë rreth markës sonë, jemi këtu për t'ju ndihmuar.
                     </p>
-                    <p className="text-base sm:text-lg md:text-xl font-armin text-gray-600 leading-tight">
+                    <p className="text-base sm:text-lg md:text-xl font-armin text-amber-900 leading-tight">
                       Na kontaktoni nëpërmjet email-it, telefonit, ose vizitoni lokacionin tonë në Ferizaj. 
                       Gjithashtu, na ndiqni në rrjetet sociale për lajmet dhe përditësimet më të fundit.
                     </p>
@@ -144,9 +144,9 @@ export default function ContactPage() {
                   {/* Email */}
                   <motion.a
                     href="mailto:ntpshlira@yahoo.com"
-                    className="group flex items-start gap-3 p-4 bg-white/90 backdrop-blur-sm rounded-xl border-l-4 border-amber-600 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                    className="group flex items-start gap-3 p-4 bg-white/90 backdrop-blur-sm border-l-4 border-amber-600 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                   >
-                    <div className="p-2 bg-amber-50 rounded-lg group-hover:bg-amber-100 transition-colors duration-300 shrink-0">
+                    <div className="p-2 bg-amber-50 group-hover:bg-amber-100 transition-colors duration-300 shrink-0">
                       <svg
                         className="h-6 w-6 text-amber-600"
                         fill="none"
@@ -174,9 +174,9 @@ export default function ContactPage() {
                   {/* Phone */}
                   <motion.a
                     href="tel:044779000"
-                    className="group flex items-start gap-3 p-4 bg-white/90 backdrop-blur-sm rounded-xl border-l-4 border-amber-600 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                    className="group flex items-start gap-3 p-4 bg-white/90 backdrop-blur-sm border-l-4 border-amber-600 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                   >
-                    <div className="p-2 bg-amber-50 rounded-lg group-hover:bg-amber-100 transition-colors duration-300 shrink-0">
+                    <div className="p-2 bg-amber-50 group-hover:bg-amber-100 transition-colors duration-300 shrink-0">
                       <svg
                         className="h-6 w-6 text-amber-600"
                         fill="none"
@@ -203,9 +203,9 @@ export default function ContactPage() {
 
                   {/* Location */}
                   <motion.div
-                    className="group flex items-start gap-3 p-4 bg-white/90 backdrop-blur-sm rounded-xl border-l-4 border-amber-600"
+                    className="group flex items-start gap-3 p-4 bg-white/90 backdrop-blur-sm border-l-4 border-amber-600"
                   >
-                    <div className="p-2 bg-amber-50 rounded-lg shrink-0">
+                    <div className="p-2 bg-amber-50 shrink-0">
                       <svg
                         className="h-6 w-6 text-amber-600"
                         fill="none"
@@ -242,7 +242,7 @@ export default function ContactPage() {
                   <h3 className="text-xl sm:text-2xl font-foregen text-gray-900 mb-2">
                     Na Ndiqni
                   </h3>
-                  <p className="text-base font-armin text-gray-600 mb-3 leading-tight">
+                  <p className="text-base font-armin text-amber-900 mb-3 leading-tight">
                     Lidhuni me ne në rrjetet sociale për lajmet dhe përditësimet më të fundit
                   </p>
                   <div className="flex items-center gap-4">
@@ -252,7 +252,7 @@ export default function ContactPage() {
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.1, y: -2 }}
                       whileTap={{ scale: 0.95 }}
-                      className="flex items-center gap-3 px-6 py-3 bg-linear-to-r from-amber-600 to-amber-800 text-white rounded-lg hover:from-amber-700 hover:to-amber-900 transition-all duration-300 shadow-lg hover:shadow-xl"
+                      className="flex items-center gap-3 px-6 py-3 bg-linear-to-r from-amber-600 to-amber-800 text-white hover:from-amber-700 hover:to-amber-900 transition-all duration-300 shadow-lg hover:shadow-xl"
                       aria-label="Instagram"
                     >
                       <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -266,7 +266,7 @@ export default function ContactPage() {
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.1, y: -2 }}
                       whileTap={{ scale: 0.95 }}
-                      className="flex items-center gap-3 px-6 py-3 bg-linear-to-r from-amber-700 to-amber-900 text-white rounded-lg hover:from-amber-800 hover:to-amber-950 transition-all duration-300 shadow-lg hover:shadow-xl"
+                      className="flex items-center gap-3 px-6 py-3 bg-linear-to-r from-amber-700 to-amber-900 text-white hover:from-amber-800 hover:to-amber-950 transition-all duration-300 shadow-lg hover:shadow-xl"
                       aria-label="Facebook"
                     >
                       <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -285,14 +285,14 @@ export default function ContactPage() {
                 variants={mapVariants}
                 className="lg:sticky lg:top-24 h-fit"
               >
-                <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 lg:p-6 shadow-xl">
+                <div className="bg-white/90 backdrop-blur-sm p-4 lg:p-6 shadow-xl">
                   <h2 className="text-2xl sm:text-3xl font-foregen text-gray-900 mb-2">
                     Lokacioni Ynë
                   </h2>
-                  <p className="text-base font-armin text-gray-600 mb-3 leading-tight">
+                  <p className="text-base font-armin text-amber-900 mb-3 leading-tight">
                     Na vizitoni në adresën tonë në Ferizaj.
                   </p>
-                  <div className="relative w-full h-[400px] md:h-[500px] lg:h-[550px] rounded-xl overflow-hidden shadow-lg">
+                  <div className="relative w-full h-[400px] md:h-[500px] lg:h-[550px] overflow-hidden shadow-lg">
                     <iframe
                       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2314.4422524543024!2d21.085321474998832!3d42.36922343452427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13547faaa67990d3%3A0x70d2ce2534fac529!2sR206%2C%2070000!5e1!3m2!1sen!2sus!4v1763922723112!5m2!1sen!2sus"
                       width="100%"

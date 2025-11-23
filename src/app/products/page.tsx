@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -66,6 +66,17 @@ function ProductCard({ product, index, cardVariants }: ProductCardProps) {
     rootMargin: "0px 0px -100px 0px",
   });
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   const isEven = index % 2 === 0;
 
   return (
@@ -74,7 +85,7 @@ function ProductCard({ product, index, cardVariants }: ProductCardProps) {
       variants={cardVariants}
       initial="hidden"
       animate={cardInView ? "visible" : "hidden"}
-      className={`flex flex-col lg:flex-row gap-8 lg:gap-12 items-center mb-16 lg:mb-16 ${
+      className={`flex flex-col lg:flex-row gap-8 lg:gap-12 items-center mb-16 lg:mb-16 overflow-hidden ${
         !isEven ? "lg:flex-row-reverse" : ""
       }`}
     >
@@ -82,14 +93,19 @@ function ProductCard({ product, index, cardVariants }: ProductCardProps) {
       <div className="flex-1 w-full lg:w-auto">
         <motion.div
           variants={{
-            hidden: { opacity: 0, x: isEven ? -50 : 50 },
+            hidden: { 
+              opacity: 0, 
+              x: isMobile ? 0 : (isEven ? -50 : 50),
+              y: 30,
+            },
             visible: {
               opacity: 1,
               x: 0,
+              y: 0,
               transition: { duration: 0.8, ease: [0.4, 0, 0.2, 1] },
             },
           }}
-          className="space-y-6"
+          className="space-y-6 overflow-hidden"
         >
           <div>
             <div className={`w-20 h-1 ${product.accentColor} mb-6`}></div>
@@ -98,7 +114,7 @@ function ProductCard({ product, index, cardVariants }: ProductCardProps) {
             </h2>
           </div>
           
-          <p className="text-lg sm:text-xl font-armin text-gray-600 leading-relaxed mb-8">
+          <p className="text-lg sm:text-xl font-armin text-amber-900 leading-relaxed mb-8">
             {product.description}
           </p>
           
@@ -108,17 +124,17 @@ function ProductCard({ product, index, cardVariants }: ProductCardProps) {
               <motion.div
                 key={idx}
                 variants={{
-                  hidden: { opacity: 0, x: -20 },
+                  hidden: { opacity: 0, y: 20 },
                   visible: {
                     opacity: 1,
-                    x: 0,
+                    y: 0,
                     transition: { duration: 0.6, delay: 0.3 + idx * 0.1 },
                   },
                 }}
                 className="flex items-center gap-4"
               >
                 <div className={`w-2 h-2 rounded-full ${product.accentColor} shrink-0`}></div>
-                <span className="text-base sm:text-lg font-armin text-gray-700 leading-relaxed">
+                <span className="text-base sm:text-lg font-armin text-amber-800 leading-relaxed">
                   {feature}
                 </span>
               </motion.div>
@@ -128,13 +144,18 @@ function ProductCard({ product, index, cardVariants }: ProductCardProps) {
       </div>
 
       {/* Bento Grid Images - Right Side */}
-      <div className="flex-1 w-full lg:w-auto">
+      <div className="flex-1 w-full lg:w-auto overflow-hidden">
         <motion.div
           variants={{
-            hidden: { opacity: 0, x: isEven ? 50 : -50 },
+            hidden: { 
+              opacity: 0, 
+              x: isMobile ? 0 : (isEven ? 50 : -50),
+              y: 30,
+            },
             visible: {
               opacity: 1,
               x: 0,
+              y: 0,
               transition: { duration: 0.8, delay: 0.2, ease: [0.4, 0, 0.2, 1] },
             },
           }}
@@ -256,23 +277,23 @@ export default function ProductsPage() {
   ];
 
   return (
-    <div className="min-h-screen relative">
+    <div className="min-h-screen relative overflow-x-hidden">
       {/* Fixed background image */}
       <div className="fixed inset-0 h-screen w-full z-0 pointer-events-none">
         <Image
           src="/assets/480439334_8924090261036063_2163819683973204547_n.png"
           alt="Background"
           fill
-          className="object-cover opacity-30 w-full"
+          className="object-cover opacity-20 w-full"
           priority
           sizes="100vw"
         />
       </div>
       
       {/* Content */}
-      <div className="relative z-10">
+      <div className="relative z-10 overflow-x-hidden">
         {/* Hero Section */}
-        <section className="w-full px-4 sm:px-6 lg:px-16">
+        <section className="w-full px-5 lg:px-16">
           <div className="mx-auto pt-16" ref={heroRef}>
             <motion.div
               initial="hidden"
@@ -283,7 +304,7 @@ export default function ProductsPage() {
               <h1 className="text-4xl font-bold text-center font-foregen">Produktet Tona</h1>
               <motion.p
                 variants={textVariants}
-                className="text-lg sm:text-xl md:text-2xl font-armin text-gray-600 leading-tight"
+                className="text-base font-armin text-amber-900 leading-tight"
               >
                 Eksploroni koleksionin tonë të çajrave të zgjedhur me kujdes
               </motion.p>
@@ -292,8 +313,8 @@ export default function ProductsPage() {
         </section>
         
         {/* Products Section */}
-        <section className="w-full px-4 sm:px-6 lg:px-16 py-8">
-          <div className="mx-auto max-w-7xl" ref={productsRef}>
+        <section className="w-full px-5 lg:px-16 py-8 overflow-x-hidden">
+          <div className="mx-auto overflow-x-hidden" ref={productsRef}>
             <div className="space-y-0">
               {products.map((product, index) => (
                 <ProductCard
