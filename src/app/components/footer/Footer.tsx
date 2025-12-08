@@ -1,10 +1,17 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Footer() {
+  const [showMap, setShowMap] = useState(false);
+
+  const toggleMap = () => {
+    setShowMap(!showMap);
+  };
+
   return (
-    <footer className="mx-5 lg:mx-16 mt-20">
+    <footer className="mx-5 lg:mx-16 mt-10 lg:mt-20">
       <div className="mx-auto py-12 lg:py-16">
         {/* Main Content Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 items-start mb-8">
@@ -122,15 +129,49 @@ export default function Footer() {
 
         {/* Location on Map Section */}
         <div className="flex flex-col items-center mb-8">
-          <h3 className="text-2xl sm:text-3xl text-black font-lemonmilk-regular mb-2">Vendndodhja në hartë</h3>
-          <svg 
-            className="w-6 h-6 text-red-600" 
-            fill="none" 
-            stroke="currentColor" 
-            viewBox="0 0 24 24"
+          <button
+            onClick={toggleMap}
+            className="flex flex-col items-center cursor-pointer hover:opacity-80 transition-opacity duration-300"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
+            <h3 className="text-2xl sm:text-3xl text-black font-lemonmilk-regular mb-2">
+              Vendndodhja në hartë
+            </h3>
+            <svg 
+              className={`w-6 h-6 text-red-600 transition-transform duration-300 ${showMap ? 'rotate-180' : ''}`}
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+
+          {/* Map Container - Show/Hide */}
+          {showMap && (
+            <div className="w-full mt-6 mb-4">
+              <div className="bg-white/90 backdrop-blur-sm p-4 lg:p-6 shadow-xl">
+                <h2 className="text-xl sm:text-2xl font-lemonmilk-regular text-gray-900 mb-2">
+                  Lokacioni Ynë
+                </h2>
+                <p className="text-sm font-armin text-amber-900 mb-3 leading-tight">
+                  Na vizitoni në adresën tonë në Ferizaj.
+                </p>
+                <div className="relative w-full h-[400px] md:h-[500px] overflow-hidden shadow-lg">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2314.4422524543024!2d21.085321474998832!3d42.36922343452427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13547faaa67990d3%3A0x70d2ce2534fac529!2sR206%2C%2070000!5e1!3m2!1sen!2sus!4v1763922723112!5m2!1sen!2sus"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Lira Brand Location"
+                    className="w-full h-full"
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Horizontal Line */}

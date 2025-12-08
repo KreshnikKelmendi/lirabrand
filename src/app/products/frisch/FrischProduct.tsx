@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function FrischProduct() {
   const images = [
-    "/assets/frisch/1.png       ",
+    "/assets/frisch/1.png",
     "/assets/frisch/2.png",
     "/assets/frisch/3.png",
     "/assets/frisch/4.png",
@@ -38,11 +38,11 @@ export default function FrischProduct() {
         </div>
       </span>
       
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl w-full px-4">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl w-full px-4">
         {images.map((src, index) => (
           <div
             key={index}
-            className="relative rounded-xl overflow-hidden transition-shadow duration-300 h-56 sm:h-64 lg:h-72"
+            className="relative rounded-xl overflow-hidden transition-shadow duration-300 h-56 sm:h-64 lg:h-72 shadow-xl shadow-black/10"
           >
             <Image
               src={src}
