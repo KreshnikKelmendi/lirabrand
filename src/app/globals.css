@@ -6,12 +6,21 @@ body{
 
 
 @font-face {
-  font-family: 'Foregen';
-  src: url('../../public/fonts/FontsFree-Net-TheForegenRoughOne.ttf');
+  font-family: 'Lemonmilk';
+  src: url('../../public/fonts/LEMONMILK-Bold.otf');
 }
 
-.font-foregen {
-  font-family: 'Foregen';
+.font-lemonmilk {
+  font-family: 'Lemonmilk';
+}
+
+@font-face {
+  font-family: 'Lemonmilk Regular';
+  src: url('../../public/fonts/LEMONMILK-Regular.otf');
+}
+
+.font-lemonmilk-regular {
+  font-family: 'Lemonmilk Regular';
 }
 
 @font-face {
@@ -21,6 +30,15 @@ body{
 
 .font-armin {
   font-family: 'Armin';
+}
+
+@font-face {
+  font-family: 'Bellarina';
+  src: url('../../public/fonts/Bellarina.otf');
+}
+
+.font-bellarina {
+  font-family: 'Bellarina';
 }
 
 .firstServiceImage {

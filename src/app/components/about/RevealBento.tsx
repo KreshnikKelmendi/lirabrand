@@ -80,10 +80,10 @@ const HeaderBlock = () => {
       {/* Background Image with Blur and Opacity */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/assets/487786048_1265413888917456_4464519389769385379_n.png"
+          src="/assets/instagram-lira.png"
           alt="Background"
           fill
-          className="object-cover  opacity-10"
+          className="object-cover opacity-10"
         />
       </div>
       
@@ -160,15 +160,15 @@ const ImageBlock = ({ src, alt, className = "", whileHover }: { src: string; alt
 const SocialsBlock = () => (
   <>
     <ImageBlock
-      src="/assets/main-5.png"
+      src="/assets/kestrina-insta.png"
       alt="Lira Brand Product"
     />
     <ImageBlock
-      src="/assets/470691922_18365246707184030_5640793309400524623_n.png"
+      src="/assets/instagram-frisch.png"
       alt="Lira Brand Product"
     />
     <ImageBlock
-      src="/assets/482091979_18374565301184030_6899814858407836004_n.png"
+      src="/assets/NATURAL.png"
       alt="Lira Brand Tea"
     />
     <ImageBlock

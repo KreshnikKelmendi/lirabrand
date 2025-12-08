@@ -23,12 +23,12 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Lira Brand",
-  description: "Lira Brand - Premium Tea Products",
+  title: "Lira Mark",
+  description: "LIRA MARK është një kompani lidere në fushën e distribuimit të produkteve ushqimore dhe brendeve të ndryshme, me një traditë mbi 30-vjeçare në tregun e Kosovës",
   icons: {
-    icon: "/assets/lirabrand-logo-removebg-preview.png",
-    shortcut: "/assets/lirabrand-logo-removebg-preview.png",
-    apple: "/assets/lirabrand-logo-removebg-preview.png",
+    icon: "/assets/IMG_5462-removebg-preview.png",
+    shortcut: "/assets/IMG_5462-removebg-preview.png",
+    apple: "/assets/IMG_5462-removebg-preview.png",
   },
 };
 

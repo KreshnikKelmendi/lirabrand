@@ -79,17 +79,7 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen relative">
-      {/* Fixed background image */}
-      <div className="fixed inset-0 h-screen w-full z-0 pointer-events-none">
-        <Image
-          src="/assets/479181733_8886304488147974_4075276727795954463_n.png"
-          alt="Background"
-          fill
-          className="object-cover opacity-20 w-full"
-          priority
-          sizes="100vw"
-        />
-      </div>
+     
       
       {/* Content */}
       <div className="relative z-10">
@@ -102,7 +92,7 @@ export default function ContactPage() {
               variants={textVariants}
               className="text-center mb-8"
             >
-              <h1 className="text-4xl lg:text-4xl font-bold font-foregen text-gray-900 mb-3">
+              <h1 className="text-4xl lg:text-4xl font-bold font-lemonmilk text-gray-900 mb-3">
                 Kontakti
               </h1>
               <div className="w-24 h-1 bg-amber-600 mx-auto mb-3"></div>
@@ -124,12 +114,12 @@ export default function ContactPage() {
               >
                 {/* Description Text */}
                 <motion.div variants={itemVariants} className="mb-6">
-                  <h2 className="text-3xl sm:text-4xl font-foregen text-gray-900 mb-3">
+                  <h2 className="text-3xl sm:text-4xl font-lemonmilk-regular text-gray-900 mb-3">
                     Na Kontaktoni
                   </h2>
                   <div className="space-y-2">
                     <p className="text-base sm:text-lg md:text-xl font-armin text-amber-900 leading-tight">
-                      Në Lira Brand, ne vlerësojmë komunikimin me klientët tanë. Nëse keni pyetje rreth produkteve tona, 
+                      Ne vlerësojmë komunikimin me klientët tanë. Nëse keni pyetje rreth produkteve tona, 
                       porosive, ose thjesht dëshironi të mësoni më shumë rreth markës sonë, jemi këtu për t'ju ndihmuar.
                     </p>
                     <p className="text-base sm:text-lg md:text-xl font-armin text-amber-900 leading-tight">

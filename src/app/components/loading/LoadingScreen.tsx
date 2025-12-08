@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface LoadingScreenProps {
@@ -94,12 +93,12 @@ export default function LoadingScreen({ isLoading }: LoadingScreenProps) {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
-          className="fixed inset-0 z-[9999] flex items-center justify-center overflow-hidden bg-white"
+          className="fixed inset-0 z-40 flex items-center justify-center overflow-hidden bg-white"
         >
           {/* Color Palette Animation Background - Full Height Sections from Bottom to Top */}
           {/* Only show after percentage reaches 100% */}
           {showColorPalette && (
-            <div className="absolute inset-0 overflow-hidden z-[1]">
+            <div className="absolute inset-0 overflow-hidden z-1">
               {/* Brown Section - Bottom layer (slides up first) */}
               <motion.div
                 className="absolute w-full h-screen bg-[#8B4513]"
@@ -138,7 +137,7 @@ export default function LoadingScreen({ isLoading }: LoadingScreenProps) {
               
               {/* Beautiful Shimmer Effect Overlay */}
               <motion.div
-                className="absolute inset-0 pointer-events-none z-[10]"
+                className="absolute inset-0 pointer-events-none z-10"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: [0, 0.25, 0] }}
                 transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
@@ -149,80 +148,33 @@ export default function LoadingScreen({ isLoading }: LoadingScreenProps) {
             </div>
           )}
 
-          {/* Logo and Spinner Container */}
+          {/* Logo Container */}
           <div className="relative z-10 flex flex-col items-center justify-center">
-            {/* Spinning Circle around Logo */}
-            <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64">
-              {/* Outer Spinning Circle */}
-              <motion.div
-                className="absolute inset-0 rounded-full border-4 border-transparent"
-                style={{
-                  borderTopColor: "#8B4513",
-                  borderRightColor: "#b92523",
-                  borderBottomColor: "#ffedde",
-                  borderLeftColor: "#8B4513",
-                }}
-                animate={{ rotate: 360 }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
-              />
-              
-              {/* Middle Spinning Circle (counter-rotation) */}
-              <motion.div
-                className="absolute inset-0 rounded-full border-4 border-transparent"
-                style={{
-                  borderTopColor: "#b92523",
-                  borderRightColor: "#ffedde",
-                  borderBottomColor: "#8B4513",
-                  borderLeftColor: "#b92523",
-                }}
-                animate={{ rotate: -360 }}
-                transition={{
-                  duration: 1.5,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
-              />
-
-              {/* Logo Container - Centered */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <motion.div
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
-                  className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48"
-                >
-                  <div className="relative h-full w-full p-4">
-                    <Image
-                      src="/assets/lirabrand-logo-removebg-preview.png"
-                      alt="LiraBrand Logo"
-                      fill
-                      className="object-contain drop-shadow-2xl"
-                      priority
-                    />
-                  </div>
-                </motion.div>
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="relative flex items-center justify-center"
+            >
+              <div className="flex items-center justify-center gap-1 sm:gap-2 md:gap-3">
+                {("LIRA MARK").split("").map((letter, index) => (
+                  <motion.span
+                    key={index}
+                    initial={{ scale: 0.8, opacity: 0, y: -20 }}
+                    animate={{ scale: 1, opacity: 1, y: 0 }}
+                    transition={{ 
+                      duration: 0.6, 
+                      delay: index * 0.1,
+                      ease: "easeOut" 
+                    }}
+                    className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-lemonmilk uppercase drop-shadow-2xl"
+                    style={{ color: '#a72b2b' }}
+                  >
+                    {letter === " " ? "\u00A0" : letter}
+                  </motion.span>
+                ))}
               </div>
-
-              {/* Inner Glow Effect */}
-              <motion.div
-                className="absolute inset-0 rounded-full pointer-events-none"
-                style={{
-                  boxShadow: "0 0 40px rgba(139, 69, 19, 0.3), 0 0 80px rgba(185, 37, 35, 0.2)",
-                }}
-                animate={{
-                  opacity: [0.5, 1, 0.5],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
-            </div>
+            </motion.div>
 
             {/* Loading Percentage Text */}
             <motion.div
