@@ -2,116 +2,133 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
+import { useLanguage } from "../../components/language/LanguageProvider";
 import FrischProduct from "./FrischProduct";
 
+const ease = [0.22, 1, 0.36, 1] as const;
+
+const headerUnderlay =
+  "-mt-[78px] pt-[78px] sm:-mt-[92px] sm:pt-[92px] lg:-mt-[168px] lg:pt-[168px] xl:-mt-[188px] xl:pt-[188px]";
+
+const heroGreen = "bg-[#48bd4a]";
+
+function VerticalDashDivider({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 8 400"
+      preserveAspectRatio="none"
+      fill="none"
+      aria-hidden
+    >
+      <line
+        x1="4"
+        y1="0"
+        x2="4"
+        y2="400"
+        stroke="white"
+        strokeWidth="6"
+        strokeLinecap="butt"
+        strokeDasharray="52 44"
+        vectorEffect="non-scaling-stroke"
+      />
+    </svg>
+  );
+}
+
 export default function FrischPage() {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+  const { t } = useLanguage();
+  const f = t.frischPage;
 
-  const [sloganRef, sloganInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
-  const fillVariants = {
-    hidden: {
-      clipPath: "inset(0 100% 0 0)",
-    },
-    visible: {
-      clipPath: "inset(0 0% 0 0)",
-      transition: {
-        duration: 1.5,
-        ease: [0.43, 0.13, 0.23, 0.96] as [number, number, number, number],
-      },
-    },
-  };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
-    <>
-      <div className="pt-6 px-5 lg:px-16 relative" style={{ backgroundColor: "#167ea1" }}>
-        {/* Background pattern overlay */}
-        <div className="absolute inset-0 pointer-events-none" />
-        
-        {/* Background text overlay */}
-        <div className="absolute opacity-55 inset-0 flex items-center justify-center pointer-events-none z-0">
-          <h1 
-            className="text-2xl lg:text-9xl font-lemonmilk text-white uppercase"
-            style={{ opacity: 0.15 }}
-          >
-            FRISCH
-          </h1>
-        </div>
-        
-        <div className="mx-auto relative z-10">
-          {/* Product Section */}
-          <div
-            ref={ref}
-            className="mt-12 md:mt-16 lg:mt-24 pb-12 md:pb-16 lg:pb-24 "
-          >
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-              {/* Left - Product Image */}
-              <svg className="absolute top-[-50px] right-16 lg:right-0 lg:left-96 rotate-180 w-[16px] h-[57px] lg:w-[32px] lg:h-[105px]" viewBox="0 0 32 105" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path className='st1' d="M20.4468 104.344C10.6022 92.2323 3.02094 78.2152 1.16844 62.6453C-0.170748 51.2857 2.04464 39.9038 6.7145 29.6352C10.0717 22.2674 14.7325 15.5028 20.1192 9.50776C21.3802 8.10964 22.6919 6.70191 24.065 5.37611C18.9749 6.74289 13.8748 8.11973 8.71181 9.19118C6.84543 9.57722 6.05581 6.68416 7.94251 6.29834C15.124 4.81202 22.2103 2.7051 29.2985 0.902914C30.4342 0.610524 31.3243 1.66632 31.138 2.75107C29.7722 10.2421 28.4166 17.7433 27.0508 25.2343C26.707 27.1299 23.8177 26.3267 24.1616 24.4514C25.2519 18.3997 26.3624 12.3482 27.4527 6.29645C18.6332 13.9504 11.589 24.5792 7.56205 35.3525C4.04473 44.7601 2.87844 54.9752 4.45317 64.9966C6.6302 78.8332 13.7358 91.4639 22.5263 102.274C23.7339 103.77 21.6445 105.87 20.4266 104.364L20.4468 104.344Z" fill="#FFFFFF"/>
-              </svg>
-              <div className="flex justify-center lg:justify-start">
-                <Image
-                  src="/assets/frisch logo.png"
-                  alt="Frisch Product"
-                  width={500}
-                  height={600}
-                  className="w-[330px] lg:w-[500px] object-contain -rotate-12"
-                />
+    <div className="min-w-0 max-w-full overflow-x-clip">
+      <div
+        className={`relative overflow-hidden text-white ${heroGreen} ${headerUnderlay}`}
+      >
+        <div className="relative px-5 pb-14 pt-4 sm:pb-16 sm:pt-6 lg:px-16 lg:pb-24 lg:pt-4 xl:pb-28">
+          <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:items-stretch lg:gap-0">
+            <motion.div
+              className="flex flex-col items-center lg:items-start lg:pr-10 xl:pr-16 2xl:pr-20"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease }}
+            >
+              <div className="flex flex-wrap items-start justify-center gap-x-4 gap-y-3 lg:justify-start">
+                <h2 className="text-center font-lemonmilk text-[1.65rem] font-bold uppercase leading-[1.06] text-[#d4e838] sm:text-3xl lg:text-left lg:text-[2.35rem] xl:text-5xl 2xl:text-[3.25rem]">
+                  {f.tagline}
+                </h2>
+                <span className="mt-1 shrink-0 rounded-md bg-[#1a6fd4] px-3 py-1.5 font-lemonmilk-regular text-xs font-bold uppercase tracking-wide text-white sm:text-sm">
+                  {f.newBadge}
+                </span>
               </div>
-              
-              {/* Right - Text Content */}
-              <div className="text-white">
-                <motion.h1
-                  className="text-3xl lg:text-4xl font-lemonmilk text-white mb-4 relative overflow-hidden inline-block"
-                  variants={fillVariants}
-                  initial="hidden"
-                  animate={inView ? "visible" : "hidden"}
+              <Image
+                src="/assets/frisch logo.png"
+                alt="Frisch"
+                width={900}
+                height={650}
+                priority
+                className="mt-8 h-auto w-full object-contain sm:mt-10 lg:mt-10 xl:mt-12"
+              />
+            </motion.div>
+
+            <div className="relative hidden flex-col items-center lg:flex lg:px-14 xl:px-20 2xl:px-24">
+              <div className={`z-10 flex flex-col items-center pb-8 ${heroGreen}`}>
+                <h1 className="font-lemonmilk text-3xl tracking-[0.12em] xl:text-4xl 2xl:text-[2.65rem]">
+                  {f.brand}
+                </h1>
+                <svg
+                  className="mt-2 h-5 w-5 animate-bounce text-white/90"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  aria-hidden
                 >
-                  FRISCH
-                </motion.h1>
-                
-                
-                <motion.div
-                  className="text-base lg:text-lg text-white/90 leading-relaxed space-y-4 font-armin"
-                  variants={fillVariants}
-                  initial="hidden"
-                  animate={inView ? "visible" : "hidden"}
-                  transition={{ delay: 0.3 }}
-                >
-                  <p>
-                    Frisch Palloma ofron produkte të besueshme për kuzhinë dhe higjienë, të dizajnuara për përdorim të përditshëm.
-                    Me cilësi të lartë dhe qëndrueshmëri të garantuar, ky brend përfshin edhe gamën e qeseve të mbeturinave, të forta dhe praktike, ideale për mbajtje të sigurt dhe menaxhim të pastër të mbetjeve në çdo ambient.
-                    Produkte që kombinojnë funksionalitetin dhe komoditetin për një shtëpi më higjienike.
-                  </p>
-                </motion.div>
+                  <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
               </div>
-              
-              <div 
-                ref={sloganRef}
-                className="lg:mt-[-50px] max-w-md mx-auto"
-              >
-                <motion.h2
-                  className="text-3xl text-center font-lemonmilk text-white font-bold uppercase leading-tight relative overflow-hidden inline-block"
-                  variants={fillVariants}
-                  initial="hidden"
-                  animate={sloganInView ? "visible" : "hidden"}
-                  transition={{ delay: 0.5 }}
-                >
-                  Pastërti dhe butësi
-                </motion.h2>
-              </div>
+              <VerticalDashDivider className="min-h-56 w-3 flex-1 lg:min-h-72 xl:min-h-80" />
             </div>
+
+            <motion.div
+              className="relative lg:pl-10 xl:pl-16 2xl:pl-20"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.12, ease }}
+            >
+              <div className={`mb-8 flex flex-col items-center lg:hidden ${heroGreen}`}>
+                <h1 className="font-lemonmilk text-2xl tracking-[0.14em] sm:text-3xl">{f.brand}</h1>
+                <svg
+                  className="mt-1.5 h-4 w-4 animate-bounce text-white/90 sm:h-5 sm:w-5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  aria-hidden
+                >
+                  <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
+
+              <div className="mb-8 lg:hidden">
+                <VerticalDashDivider className="mx-auto h-24 w-2 rotate-90" />
+              </div>
+
+              <div className="space-y-6 font-armin text-base leading-relaxed text-white sm:text-lg lg:space-y-8 lg:text-lg lg:leading-relaxed xl:text-xl xl:leading-relaxed 2xl:text-[1.35rem]">
+                <p>{f.body}</p>
+                <p>{f.bodyLine2}</p>
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>
+
       <FrischProduct />
-    </>
+    </div>
   );
 }

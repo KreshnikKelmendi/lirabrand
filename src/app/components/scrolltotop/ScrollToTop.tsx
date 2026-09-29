@@ -3,20 +3,18 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+const ease = [0.16, 1, 0.3, 1] as const;
+
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const toggleVisibility = () => {
-      // Show button when page is scrolled down 300px
-      if (window.scrollY > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+      setIsVisible(window.scrollY > 280);
     };
 
-    window.addEventListener("scroll", toggleVisibility);
+    toggleVisibility();
+    window.addEventListener("scroll", toggleVisibility, { passive: true });
 
     return () => {
       window.removeEventListener("scroll", toggleVisibility);
@@ -24,41 +22,36 @@ export default function ScrollToTop() {
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
     <AnimatePresence>
       {isVisible && (
         <motion.button
-          initial={{ opacity: 0, scale: 0.5, y: 20 }}
+          type="button"
+          initial={{ opacity: 0, scale: 0.85, y: 16 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.5, y: 20 }}
-          transition={{ duration: 0.3 }}
+          exit={{ opacity: 0, scale: 0.85, y: 16 }}
+          transition={{ duration: 0.4, ease }}
+          whileHover={{ scale: 1.06, y: -2 }}
+          whileTap={{ scale: 0.96 }}
           onClick={scrollToTop}
-          className="fixed bottom-4 right-4 lg:right-16 z-50 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-[#8B4513] text-white shadow-lg transition-all duration-300 hover:bg-[#6B3410] hover:scale-110 focus:outline-none focus:ring-2 focus:ring-[#8B4513] focus:ring-offset-2"
+          className="fixed bottom-5 right-5 z-50 flex h-11 w-11 cursor-pointer items-center justify-center rounded-2xl bg-white text-[#e10600] shadow-[0_12px_28px_rgba(0,0,0,0.22)] ring-1 ring-black/5 transition-colors duration-300 hover:bg-[#fff5f5] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:bottom-6 sm:right-6 lg:bottom-8 lg:right-16 lg:h-12 lg:w-12"
           aria-label="Scroll to top"
         >
           <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
             viewBox="0 0 24 24"
-            strokeWidth={2.5}
+            fill="none"
             stroke="currentColor"
-            className="h-5 w-5"
+            strokeWidth={2.25}
+            className="h-5 w-5 lg:h-[1.35rem] lg:w-[1.35rem]"
+            aria-hidden
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M4.5 15.75l7.5-7.5 7.5 7.5"
-            />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 15l6-6 6 6" />
           </svg>
         </motion.button>
       )}
     </AnimatePresence>
   );
 }
-

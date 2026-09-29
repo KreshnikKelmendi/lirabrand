@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import LoadingProvider from "./components/loading/LoadingProvider";
+import LanguageProvider from "./components/language/LanguageProvider";
 import ScrollToTop from "./components/scrolltotop/ScrollToTop";
 
 const geistSans = Geist({
@@ -43,12 +44,14 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${playfairDisplay.variable} antialiased flex flex-col min-h-screen`}
       >
         <LoadingProvider>
-          <Header />
-          <main className="flex-1">
-            {children}
-          </main>
-          <Footer />
-          <ScrollToTop />
+          <LanguageProvider>
+            <Header />
+            <main className="min-w-0 flex-1 overflow-x-clip">
+              {children}
+            </main>
+            <Footer />
+            <ScrollToTop />
+          </LanguageProvider>
         </LoadingProvider>
       </body>
     </html>

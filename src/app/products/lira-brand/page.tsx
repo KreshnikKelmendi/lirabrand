@@ -2,262 +2,170 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import { useLanguage } from "../../components/language/LanguageProvider";
 
-function Lira5TitleSection() {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+const ease = [0.22, 1, 0.36, 1] as const;
 
-  const fillVariants = {
-    hidden: {
-      clipPath: "inset(0 100% 0 0)",
-    },
-    visible: {
-      clipPath: "inset(0 0% 0 0)",
-      transition: {
-        duration: 1.5,
-        ease: [0.43, 0.13, 0.23, 0.96] as [number, number, number, number],
-      },
-    },
-  };
-
+function TeaBand({
+  title,
+  subtitle,
+  packs,
+  lines,
+}: {
+  title: string;
+  subtitle: string;
+  packs: { src: string; alt: string; size: string; shift?: string }[];
+  lines: string[];
+}) {
   return (
-    <div ref={ref} className="text-center border-t border-gray-300 pt-12 lg:pt-16">
-      <motion.p
-        className="text-2xl font-lemonmilk text-red-700 relative overflow-hidden inline-block"
-        variants={fillVariants}
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"}
-      >
-        CEYLON TEA
-      </motion.p>
-      <motion.p
-        className="text-4xl font-bellarina text-black block mt-2"
-        variants={fillVariants}
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"}
-      >
-        Black Tea
-      </motion.p>
-    </div>
-  );
-}
-
-function TitleSection() {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
-  const fillVariants = {
-    hidden: {
-      clipPath: "inset(0 100% 0 0)",
-    },
-    visible: {
-      clipPath: "inset(0 0% 0 0)",
-      transition: {
-        duration: 1.5,
-        ease: [0.43, 0.13, 0.23, 0.96] as [number, number, number, number],
-      },
-    },
-  };
-
-  return (
-    <div ref={ref} className="text-center">
+    <section className="relative -mx-5 overflow-hidden bg-[#c21c1e] px-6 pt-12 text-center text-white sm:pt-14 lg:-mx-16 lg:pt-16">
       <motion.h2
-        className="text-4xl lg:text-5xl font-lemonmilk text-red-700 relative overflow-hidden inline-block"
-        variants={fillVariants}
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"}
+        className="font-lemonmilk text-3xl uppercase tracking-wide sm:text-4xl lg:text-5xl"
+        initial={{ opacity: 0, y: 18 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.6 }}
+        transition={{ duration: 0.55, ease }}
       >
-      <span className="text-gray-300">NETT WEIGHT 10 KG</span>
+        {title}
       </motion.h2>
-    </div>
+      <motion.p
+        className="mt-1 font-bellarina text-4xl leading-none sm:text-5xl lg:text-6xl"
+        initial={{ opacity: 0, y: 18 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.6 }}
+        transition={{ duration: 0.55, delay: 0.12, ease }}
+      >
+        {subtitle}
+      </motion.p>
+      <div className="mx-auto mt-6 flex flex-nowrap items-end justify-center sm:mt-8">
+        {packs.map((pack, index) => (
+          <motion.div
+            key={pack.src}
+            className={
+              pack.shift ?? (index === 0 ? "" : "-ml-24 sm:-ml-40 lg:-ml-56")
+            }
+            initial={{ opacity: 0, y: 36 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.35 }}
+            transition={{ duration: 0.65, delay: 0.15 + index * 0.16, ease }}
+          >
+            <Image
+              src={pack.src}
+              alt={pack.alt}
+              width={1000}
+              height={1000}
+              className={`h-auto w-auto object-contain object-bottom ${pack.size}`}
+            />
+          </motion.div>
+        ))}
+      </div>
+      <motion.p
+        className="mx-auto mt-4 max-w-4xl text-lg font-bold leading-snug sm:text-xl lg:text-2xl"
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.7 }}
+        transition={{ duration: 0.55, delay: 0.2 + packs.length * 0.16, ease }}
+      >
+        {lines.map((line, index) => (
+          <span key={line}>
+            {index > 0 && <br />}
+            {line}
+          </span>
+        ))}
+      </motion.p>
+      <div className="-mx-6 mt-10 h-2 bg-[#9b0606] sm:mt-12" />
+    </section>
   );
 }
 
 export default function LiraBrandPage() {
-  const liraProducts = [
-    {
-      id: 1,
-      image: "/assets/lira-1.png",
-      title: "PREMIUM",
-      subtitle: "Black Tea",
-      weights: [
-        { size: "400 GR", pack: "1X20 PC" },
-        { size: "800 GR", pack: "1X10 PC" },
-      ],
-    },
-    {
-      id: 2,
-      image: "/assets/lira 2.png",
-      title: "GOLD",
-      subtitle: "Black Tea",
-      weights: [
-        { size: "200 GR", pack: "1X40 PC" },
-        { size: "400 GR", pack: "1X20 PC" },
-        { size: "800 GR", pack: "1X10 PC" },
-      ],
-    },
-    {
-      id: 3,
-      image: "/assets/lira 3.png",
-      title: "444A",
-      subtitle: "Black Tea",
-      weights: [
-        { size: "300 GR", pack: "1X22 PC" },
-        { size: "600 GR", pack: "1X12 PC" },
-      ],
-    },
-    {
-      id: 4,
-      image: "/assets/lira 4.png",
-      title: "TRADITIONAL",
-      subtitle: "Black Tea",
-      weights: [
-        { size: "200 GR", pack: "1X80 PC" },
-        { size: "400 GR", pack: "1X40 PC" },
-        { size: "800 GR", pack: "1X20 PC" },
-      ],
-    },
-  ];
-
-  const lira5Images = [
-    "/assets/lira 5.png",
-    "/assets/lira 6.png",
-  ];
-
-  const fillVariants = {
-    hidden: {
-      clipPath: "inset(0 100% 0 0)",
-    },
-    visible: {
-      clipPath: "inset(0 0% 0 0)",
-      transition: {
-        duration: 1.5,
-        ease: [0.43, 0.13, 0.23, 0.96] as [number, number, number, number],
-      },
-    },
-  };
+  const { t } = useLanguage();
 
   return (
-    <div className=" pt-6 px-5 lg:px-16">
-      <div className="mx-auto">
-      
-        {/* Product Sections */}
-        {liraProducts.map((product, index) => {
-          const [ref, inView] = useInView({
-            triggerOnce: true,
-            threshold: 0.1,
-          });
-
-          return (
-            <div
-              key={product.id}
-              ref={ref}
-              className={`mt-12 md:mt-16 lg:mt-24 pb-12 md:pb-16 lg:pb-24 ${
-                index < liraProducts.length - 1 ? "border-b border-gray-300" : ""
-              }`}
-            >
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-                {/* Left - Product Image */}
-                <div className="flex justify-center">
-                  <Image
-                    src={product.image}
-                    alt={`Lira Brand ${product.title} ${product.subtitle}`}
-                    width={420}
-                    height={420}
-                    className="w-[330px] lg:w-full object-contain"
-                  />
-                </div>
-
-                {/* Right - Text and Weights */}
-                <div>
-                  <motion.p
-                    className="text-2xl font-lemonmilk text-red-700 relative"
-                    variants={fillVariants}
-                    initial="hidden"
-                    animate={inView ? "visible" : "hidden"}
-                  >
-                    {product.title}
-                  </motion.p>
-                  <motion.p
-                    className="text-4xl font-bellarina text-black block mt-2"
-                    variants={fillVariants}
-                    initial="hidden"
-                    animate={inView ? "visible" : "hidden"}
-                  >
-                    {product.subtitle}
-                  </motion.p>
-
-                  <div className="mt-8 md:mt-10 space-y-4 md:space-y-5 text-gray-400 font-lemonmilk">
-                    {product.weights.map((weight, idx) => (
-                      <motion.div
-                        key={idx}
-                        className="relative overflow-hidden"
-                        variants={fillVariants}
-                        initial="hidden"
-                        animate={inView ? "visible" : "hidden"}
-                        transition={{ delay: 0.2 + idx * 0.1 }}
-                      >
-                        <p className="text-2xl md:text-3xl font-light">
-                          {weight.size}
-                        </p>
-                        <p className="text-xl md:text-2xl font-light">
-                          {weight.pack}
-                        </p>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          );
-        })}
-
-        {/* lira-5 Images - Two images in grid-cols-2 */}
-        <div className="">
-        <Lira5TitleSection />
-          <div className="grid grid-cols-2 gap-6 ">
-          
-            {lira5Images.map((image, idx) => {
-              const [ref, inView] = useInView({
-                triggerOnce: true,
-                threshold: 0.1,
-              });
-
-              return (
-                <div
-                  key={idx}
-                  ref={ref}
-                  className="flex justify-center"
-                >
-                  
-                  <motion.div
-                    variants={fillVariants}
-                    initial="hidden"
-                    animate={inView ? "visible" : "hidden"}
-                    transition={{ delay: idx * 0.2 }}
-                    className="relative overflow-hidden"
-                  >
-                    <Image
-                      src={image}
-                      alt={`Lira Product 5 - ${idx + 1}`}
-                      width={900}
-                      height={400}
-                      className="w-full object-cover"
-                    />
-                  </motion.div>
-                </div>
-              );
-            })}
-          </div>
-          {/* Title at the bottom center */}
-          <TitleSection />
-        </div>
+    <div className="min-w-0 max-w-full overflow-x-clip px-5 lg:px-16">
+      <div className="relative -mx-5 -mt-[78px] bg-[#c21c1e] pt-[78px] sm:-mt-[92px] sm:pt-[92px] lg:-mx-16 lg:-mt-[168px] lg:pt-[168px] xl:-mt-[188px] xl:pt-[188px]">
+        <Image
+          src="/assets/main/lirabrand-main.jpg"
+          alt="Lira Brand"
+          width={1402}
+          height={459}
+          priority
+          className="h-auto w-full"
+        />
+        <div className="h-2 bg-[#9b0606]" />
       </div>
+
+      <TeaBand
+        title={t.premium.title}
+        subtitle={t.premium.subtitle}
+        lines={[t.premium.line1, t.premium.line2]}
+        packs={[
+          { src: "/assets/lirabrandProducts/4.png", alt: "Lira Brand Premium 400 g", size: "h-64 w-auto sm:h-80 lg:h-[28rem]" },
+          { src: "/assets/lirabrandProducts/5.png", alt: "Lira Brand Premium 800 g", size: "h-80 w-auto sm:h-[28rem] lg:h-[36rem]" },
+        ]}
+      />
+      <TeaBand
+        title={t.tea444.title}
+        subtitle={t.tea444.subtitle}
+        lines={[t.tea444.line1, t.tea444.line2]}
+        packs={[
+          { src: "/assets/lirabrandProducts/6.png", alt: "Lira Brand 444A 300 g", size: "h-64 w-auto sm:h-80 lg:h-[28rem]" },
+          { src: "/assets/lirabrandProducts/7.png", alt: "Lira Brand 444A 600 g", size: "h-80 w-auto sm:h-[28rem] lg:h-[36rem]" },
+        ]}
+      />
+      <TeaBand
+        title={t.gold.title}
+        subtitle={t.gold.subtitle}
+        lines={[t.gold.line1, t.gold.line2, t.gold.line3]}
+        packs={[
+          { src: "/assets/lirabrandProducts/8.png", alt: "Lira Brand Gold 200 g", size: "h-56 w-auto sm:h-72 lg:h-[24rem]" },
+          { src: "/assets/lirabrandProducts/9.png", alt: "Lira Brand Gold 400 g", size: "h-72 w-auto sm:h-96 lg:h-[32rem]" },
+          { src: "/assets/lirabrandProducts/10.png", alt: "Lira Brand Gold 800 g", size: "h-56 w-auto sm:h-72 lg:h-[24rem]" },
+        ]}
+      />
+      <TeaBand
+        title={t.traditional.title}
+        subtitle={t.traditional.subtitle}
+        lines={[t.traditional.line1, t.traditional.line2, t.traditional.line3]}
+        packs={[
+          {
+            src: "/assets/lirabrandProducts/11.png",
+            alt: "Lira Brand Traditional 200 g",
+            size: "h-64 w-auto sm:h-80 lg:h-[26rem] xl:h-[31rem]",
+            shift: "mb-14 sm:mb-20 lg:mb-24 xl:mb-28",
+          },
+          {
+            src: "/assets/lirabrandProducts/12.png",
+            alt: "Lira Brand Traditional 400 g",
+            size: "h-72 w-auto sm:h-96 lg:h-[32rem] xl:h-[37rem]",
+            shift: "-ml-10 mb-8 sm:-ml-14 sm:mb-10 lg:-ml-16 lg:mb-14 xl:-ml-20 xl:mb-16",
+          },
+          {
+            src: "/assets/lirabrandProducts/13.png",
+            alt: "Lira Brand Traditional 800 g",
+            size: "h-80 w-auto sm:h-[28rem] lg:h-[39rem] xl:h-[45rem]",
+            shift: "-ml-24 sm:-ml-32 lg:-ml-40 xl:-ml-48",
+          },
+        ]}
+      />
+      <TeaBand
+        title={t.teaSack.title}
+        subtitle={t.teaSack.subtitle}
+        lines={[t.teaSack.line1]}
+        packs={[
+          {
+            src: "/assets/lirabrandProducts/14.png",
+            alt: "Lira Brand Tea Sack 444A 10 kg",
+            size: "h-72 w-auto sm:h-[30rem] lg:h-[38rem] xl:h-[44rem]",
+          },
+          {
+            src: "/assets/lirabrandProducts/15.png",
+            alt: "Lira Brand Tea Sack 10 kg",
+            size: "h-72 w-auto sm:h-[30rem] lg:h-[38rem] xl:h-[44rem]",
+            shift: "-ml-32 sm:-ml-60 lg:-ml-[19rem] xl:-ml-[22rem]",
+          },
+        ]}
+      />
     </div>
   );
 }

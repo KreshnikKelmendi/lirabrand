@@ -2,23 +2,16 @@ import Image from "next/image";
 
 export default function Slider() {
   return (
-    <div className="w-full h-[40vh] lg:h-screen relative overflow-hidden">
-      {/* Mobile Image */}
+    <section className="relative z-10 w-full bg-[#f4f4f4] lg:h-screen lg:bg-black">
       <Image
-        src="/assets/main-1.png"
-        alt="Main Slider Image"
-        fill
-        className="object-cover firstServiceImage lg:hidden"
+        src="/assets/main/main-website.webp"
+        alt="Lira Mark"
+        width={2400}
+        height={1600}
         priority
+        sizes="100vw"
+        className="block h-auto w-full object-contain object-center lg:absolute lg:inset-0 lg:h-full lg:w-full lg:object-cover lg:object-center"
       />
-      {/* Large Device Image */}
-      <Image
-        src="/assets/main-1.png"
-        alt="Main Slider Image"
-        fill
-        className="object-cover firstServiceImage hidden lg:block"
-        priority
-      />
-    </div>
+    </section>
   );
 }

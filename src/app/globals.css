@@ -1,7 +1,14 @@
 @import "tailwindcss";
 
-body{
+html {
+  overflow-x: clip;
+  max-width: 100%;
+}
+
+body {
   background-color: #E5E7EB;
+  overflow-x: clip;
+  max-width: 100%;
 }
 
 
