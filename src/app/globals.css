@@ -88,4 +88,20 @@ body {
   object-fit: cover;
 }
 
+@keyframes hero-mobile-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.hero-mobile-track {
+  animation: hero-mobile-marquee 12s linear infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-mobile-track {
+    animation: none;
+  }
+}
 

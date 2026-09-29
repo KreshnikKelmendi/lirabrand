@@ -9,7 +9,12 @@ import { useLanguage } from "../language/LanguageProvider";
 const headerUnderlay =
   "-mt-[78px] pt-[78px] sm:-mt-[92px] sm:pt-[92px] lg:-mt-[168px] lg:pt-[168px] xl:-mt-[188px] xl:pt-[188px]";
 
-export default function AboutLiraBrand() {
+export default function AboutLiraBrand({
+  withHeaderUnderlay = false,
+}: {
+  /** Only on /about — pulls hero under the fixed header. Never use on homepage. */
+  withHeaderUnderlay?: boolean;
+}) {
   const { t } = useLanguage();
   // const router = useRouter();
   
@@ -187,7 +192,7 @@ export default function AboutLiraBrand() {
   return (
     <section className="w-full">
       <div
-        className={`relative overflow-hidden bg-[#e10600] px-6 pb-16 pt-6 text-white sm:px-10 sm:pb-20 sm:pt-8 lg:px-20 lg:pb-24 lg:pt-10 ${headerUnderlay}`}
+        className={`relative overflow-hidden bg-[#e10600] px-6 pb-16 pt-6 text-white sm:px-10 sm:pb-20 sm:pt-8 lg:px-20 lg:pb-24 lg:pt-10 ${withHeaderUnderlay ? headerUnderlay : ""}`}
       >
         <div className="mx-auto max-w-5xl">
           <motion.div
