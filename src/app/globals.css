@@ -90,13 +90,14 @@ body {
 
 @keyframes hero-mobile-marquee {
   to {
-    transform: translateX(-50%);
+    transform: translate3d(calc(-1 * var(--hero-marquee-shift, 100vw)), 0, 0);
   }
 }
 
 .hero-mobile-track {
   animation: hero-mobile-marquee 12s linear infinite;
   will-change: transform;
+  backface-visibility: hidden;
 }
 
 @media (prefers-reduced-motion: reduce) {

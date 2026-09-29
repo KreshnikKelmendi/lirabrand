@@ -242,7 +242,7 @@ export default function Header() {
               width={266}
               height={55}
               priority
-              className="relative h-7 w-auto transition duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.05] group-hover:drop-shadow-[0_6px_18px_rgba(0,0,0,0.22)] group-active:scale-[0.98] sm:h-8 lg:h-11 xl:h-12"
+              className="relative h-7 w-auto transition duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.05] group-hover:drop-shadow-[0_6px_18px_rgba(0,0,0,0.22)] group-active:scale-[0.98] sm:h-10 lg:h-11 xl:h-12"
             />
           </Link>
 

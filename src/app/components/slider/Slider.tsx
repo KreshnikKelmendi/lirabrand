@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import Image from "next/image";
 
 const mobileHeroSlides = [
@@ -8,25 +9,33 @@ const mobileHeroSlides = [
 
 export default function Slider() {
   const loopSlides = [...mobileHeroSlides, ...mobileHeroSlides];
+  const slideCount = mobileHeroSlides.length;
 
   return (
     <>
       {/* Mobile: full-bleed infinite horizontal carousel */}
       <section
-        className="relative z-10 h-[50vh] w-full overflow-hidden lg:hidden"
+        className="relative z-10 h-[55vh] w-full overflow-hidden bg-black lg:hidden"
         aria-label="Hero carousel"
       >
-        <div className="hero-mobile-track flex h-[50vh] w-max">
+        <div
+          className="hero-mobile-track flex h-[55vh] w-max flex-nowrap gap-0"
+          style={
+            {
+              "--hero-marquee-shift": `calc(100vw * ${slideCount})`,
+            } as CSSProperties
+          }
+        >
           {loopSlides.map((slide, index) => (
             <div
               key={`${slide.src}-${index}`}
-              className="relative h-[50vh] w-screen shrink-0"
+              className="relative h-[55vh] w-screen max-w-[100vw] shrink-0 grow-0 basis-[100vw]"
             >
               <Image
                 src={slide.src}
                 alt={slide.alt}
                 fill
-                priority={index < 3}
+                priority
                 sizes="100vw"
                 className="object-cover object-center"
               />
