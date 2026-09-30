@@ -200,10 +200,10 @@ export default function Header() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 14, scale: 0.98 }}
                     transition={{ duration: 0.45, ease: menuEase }}
-                    className="absolute left-0 top-full z-50 w-[min(460px,calc(100vw-2.5rem))] pt-3 lg:w-[min(620px,calc(100vw-3rem))]"
+                    className="absolute left-0 top-full z-50 w-[min(500px,calc(100vw-2.5rem))] pt-3 lg:w-[min(680px,calc(100vw-3rem))]"
                   >
                     <div className="rounded-3xl bg-white p-4 shadow-[0_32px_70px_rgba(0,0,0,0.2)] ring-1 ring-black/5 lg:p-6">
-                      <div className="grid grid-cols-2 gap-3 lg:gap-4">
+                      <div className="grid grid-cols-2 gap-3 lg:gap-5">
                         {brands.map((brand, index) => (
                           <motion.div
                             key={brand.href}
@@ -218,15 +218,15 @@ export default function Header() {
                             <Link
                               href={brand.href}
                               onClick={() => setIsDropdownOpen(false)}
-                              className={`group flex flex-col items-center justify-center rounded-2xl px-4 py-6 transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(0,0,0,0.12)] lg:py-8 ${brand.wash} ${pathname === brand.href ? "ring-2 ring-[#e10600]/35 ring-offset-2 ring-offset-white" : ""}`}
+                              className={`group flex flex-col items-center justify-center rounded-2xl px-4 py-7 transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(0,0,0,0.12)] lg:px-5 lg:py-9 ${brand.wash} ${pathname === brand.href ? "ring-2 ring-[#e10600]/35 ring-offset-2 ring-offset-white" : ""}`}
                               aria-current={pathname === brand.href ? "page" : undefined}
                             >
                               <Image
                                 src={brand.image}
                                 alt={brand.label}
-                                width={160}
-                                height={80}
-                                className="h-16 w-auto object-contain transition duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06] lg:h-24"
+                                width={220}
+                                height={110}
+                                className="h-20 w-auto object-contain transition duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06] sm:h-22 lg:h-28 xl:h-32"
                               />
                               <span
                                 className="mt-4 font-lemonmilk text-sm uppercase tracking-wide transition duration-500 group-hover:tracking-wider lg:text-base"
@@ -378,9 +378,9 @@ export default function Header() {
                               <Image
                                 src={brand.image}
                                 alt={brand.label}
-                                width={120}
-                                height={64}
-                                className="h-11 w-auto object-contain sm:h-12"
+                                width={160}
+                                height={80}
+                                className="h-14 w-auto object-contain sm:h-16"
                               />
                               <span
                                 className="mt-2 text-center font-lemonmilk-regular text-[10px] uppercase tracking-wide sm:text-xs"
