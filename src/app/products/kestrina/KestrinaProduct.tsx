@@ -3,6 +3,11 @@
 import Image from "next/image";
 import { useLanguage } from "../../components/language/LanguageProvider";
 
+/** Same horizontal slot + overlap for Love Box and Family Pack pairs */
+const productPairFirst =
+  "w-[48%] max-w-[12.5rem] shrink-0 sm:max-w-[14rem] lg:max-w-[16rem] xl:max-w-[18rem] 2xl:max-w-[19rem]";
+const productPairSecond = `${productPairFirst} -ml-[14%] sm:-ml-[24%] lg:-ml-[15%]`;
+
 function ProductRow({
   images,
   title,
@@ -24,7 +29,7 @@ function ProductRow({
             alt={image.alt}
             width={1000}
             height={1000}
-            className={`w-auto max-w-[46%] shrink-0 object-contain object-bottom drop-shadow-[0_22px_34px_rgba(0,0,0,0.32)] md:max-w-[44%] lg:max-w-[48%] ${index === 0 ? "" : "-ml-8 sm:-m l-10 md:-ml-12 lg:-ml-14 xl:-ml-17"} ${imageClass}`}
+            className={`object-contain object-bottom drop-shadow-[0_22px_34px_rgba(0,0,0,0.32)] ${index === 0 ? productPairFirst : productPairSecond} ${imageClass}`}
           />
         ))}
       </div>
@@ -33,10 +38,10 @@ function ProductRow({
         <p className="font-lemonmilk-regular text-lg font-bold leading-snug text-white sm:text-xl lg:text-2xl xl:text-[1.65rem]">
           {title}
         </p>
-        {lines.map((line) => (
+        {lines.map((line, lineIndex) => (
           <p
             key={line}
-            className="mt-2 font-armin text-base font-semibold leading-relaxed text-white sm:text-lg lg:mt-2.5 lg:text-xl xl:text-[1.35rem]"
+            className={`font-armin text-base font-semibold leading-tight text-white sm:text-lg lg:text-xl xl:text-[1.35rem] ${lineIndex === 0 ? "mt-1.5 sm:mt-2" : "mt-0.5 sm:mt-1"}`}
           >
             {line}
           </p>
@@ -56,7 +61,8 @@ export default function KestrinaProduct() {
     "h-40 sm:h-48 md:h-52 lg:h-[17rem] xl:h-[20rem] 2xl:h-[21rem]";
 
   return (
-    <section className="-mx-5 overflow-x-clip bg-[#cf0207] px-5 pb-14 pt-10 text-white sm:pb-16 sm:pt-12 lg:-mx-16 lg:px-16 lg:pb-16 lg:pt-14">
+    <section className="overflow-x-clip bg-[#cf0207] pb-14 pt-10 text-white sm:pb-16 sm:pt-12 lg:pb-16 lg:pt-14">
+      <div className="container">
       <div className="flex flex-col items-center text-center">
         <h2 className="font-lemonmilk text-2xl uppercase tracking-[0.12em] sm:text-3xl lg:text-4xl">
           {k.productsTitle}
@@ -73,7 +79,7 @@ export default function KestrinaProduct() {
         </svg>
       </div>
 
-      <div className="mx-auto mt-10 flex max-w-6xl flex-col gap-16 sm:mt-12 sm:gap-20 lg:mt-14 lg:max-w-7xl lg:gap-24 xl:max-w-336">
+      <div className="mt-10 flex w-full flex-col gap-8 sm:mt-12 sm:gap-10 lg:mt-14 lg:gap-12">
         <ProductRow
           imageClass={bagSize}
           title={k.loveBoxTitle}
@@ -92,6 +98,7 @@ export default function KestrinaProduct() {
             { src: "/assets/kestrinaProduct/4.png", alt: "Kestrina Family Pack 300 g lemon" },
           ]}
         />
+      </div>
       </div>
     </section>
   );

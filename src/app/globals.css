@@ -11,6 +11,15 @@ body {
   max-width: 100%;
 }
 
+@layer components {
+  .container {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 90rem;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+}
 
 @font-face {
   font-family: 'Lemonmilk';

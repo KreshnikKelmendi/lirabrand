@@ -293,7 +293,7 @@ export default function ProductsPage() {
       {/* Content */}
       <div className="relative z-10 overflow-x-hidden">
         {/* Hero Section */}
-        <section className="w-full px-5 lg:px-16">
+        <section className="container w-full">
           <div className="mx-auto pt-16" ref={heroRef}>
             <motion.div
               initial="hidden"
@@ -313,7 +313,7 @@ export default function ProductsPage() {
         </section>
         
         {/* Products Section */}
-        <section className="w-full px-5 lg:px-16 py-8 overflow-x-hidden">
+        <section className="container w-full overflow-x-hidden py-8">
           <div className="mx-auto overflow-x-hidden" ref={productsRef}>
             <div className="space-y-0">
               {products.map((product, index) => (

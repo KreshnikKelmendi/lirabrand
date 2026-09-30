@@ -31,7 +31,7 @@ export const translations = {
     partner: {
       line1: "Partneri juaj strategjik",
       line2: "për tregun e Kosovës",
-      cta: "Na kontaktoni",
+      cta: "NA KONTAKTONI",
     },
     about: {
       title: "Rreth nesh",
@@ -84,6 +84,12 @@ export const translations = {
       subtitle: "Black Tea",
       line1: "PESHA NETO 10 Kg",
     },
+    liraBrandPage: {
+      brand: "LIRA BRAND",
+      taglineBold: "Ku tradita",
+      taglineScript: "ngroh çdo çast",
+      since: "since 1992",
+    },
     naturalPage: {
       brand: "NATURAL",
       title: "VAJ LULEDIELLI",
@@ -93,6 +99,7 @@ export const translations = {
     frischPage: {
       brand: "FRISCH",
       tagline: "Gjithmonë zgjedhja perfekte",
+      taglineLines: ["Gjithmonë", "zgjedhja", "perfekte"],
       newBadge: "NEW",
       body: "Frisch Palloma ofron produkte të besueshme për kuzhinë dhe higjienë, të dizajnuara për përdorim të përditshëm. Me cilësi të lartë dhe qëndrueshmëri të garantuar, ky brend përfshin edhe gamën e qesëve të mbeturinave, të forta dhe praktike, ideale për mbajtje të sigurt dhe menaxhim të pastër të mbetjeve në çdo ambient.",
       bodyLine2:
@@ -197,7 +204,7 @@ export const translations = {
     partner: {
       line1: "Your strategic partner",
       line2: "for the Kosovo market",
-      cta: "Contact us",
+      cta: "CONTACT US",
     },
     about: {
       title: "About us",
@@ -250,6 +257,12 @@ export const translations = {
       subtitle: "Black Tea",
       line1: "NETT WEIGHT 10 Kg",
     },
+    liraBrandPage: {
+      brand: "LIRA BRAND",
+      taglineBold: "Where tradition",
+      taglineScript: "warms every moment",
+      since: "since 1992",
+    },
     naturalPage: {
       brand: "NATURAL",
       title: "SUNFLOWER OIL",
@@ -259,6 +272,7 @@ export const translations = {
     frischPage: {
       brand: "FRISCH",
       tagline: "Always the perfect choice",
+      taglineLines: ["Always", "the perfect", "choice"],
       newBadge: "NEW",
       body: "Frisch Palloma offers reliable products for kitchen and hygiene, designed for everyday use. With high quality and guaranteed durability, the brand also includes a range of garbage bags — strong and practical, ideal for secure storage and clean waste management in any setting.",
       bodyLine2: "Products that combine functionality and convenience for a more hygienic home.",

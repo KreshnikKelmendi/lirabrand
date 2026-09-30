@@ -32,8 +32,8 @@ export default function Distributor() {
   const { t } = useLanguage();
 
   return (
-    <section className="w-full bg-white px-6 py-16 sm:px-10 lg:px-20 lg:py-24">
-      <div className="mx-auto max-w-5xl">
+    <section className="w-full bg-white">
+      <div className="container w-full py-14 sm:py-18 lg:py-24">
         <Reveal delay={0}>
           <p className="text-base font-bold leading-relaxed text-black sm:text-lg lg:text-xl">
             {t.distributor.p1}
@@ -44,11 +44,11 @@ export default function Distributor() {
             {t.distributor.p2}
           </p>
         </Reveal>
-        <Reveal delay={0.3} className="mt-12 text-center">
-          <p className="text-lg font-extrabold text-black sm:text-xl lg:text-2xl">
+        <Reveal delay={0.3} className="mt-12">
+          <p className="font-lemonmilk text-lg font-extrabold text-black sm:text-xl lg:text-2xl">
             {t.distributor.stats}
           </p>
-          <p className="mt-3 text-lg font-extrabold text-[#e10600] sm:text-xl lg:text-2xl">
+          <p className="mt-3 font-lemonmilk text-lg font-extrabold text-[#e10600] sm:text-xl lg:text-2xl">
             {t.distributor.tag}
           </p>
         </Reveal>

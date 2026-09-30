@@ -19,8 +19,8 @@ export default function ProductFocus() {
   const { t } = useLanguage();
 
   return (
-    <section className="w-full px-6 py-14 sm:px-10 lg:px-20 lg:py-20" style={stripe}>
-      <div className="mx-auto w-full max-w-6xl">
+    <section className="w-full" style={stripe}>
+      <div className="container w-full py-14 sm:py-16 lg:py-20">
         <motion.h2
           className="font-lemonmilk text-[22px] uppercase tracking-wide text-black sm:text-[26px]"
           initial={{ opacity: 0, y: 16 }}

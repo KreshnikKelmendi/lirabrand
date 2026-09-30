@@ -192,9 +192,9 @@ export default function AboutLiraBrand({
   return (
     <section className="w-full">
       <div
-        className={`relative overflow-hidden bg-[#e10600] px-6 pb-16 pt-6 text-white sm:px-10 sm:pb-20 sm:pt-8 lg:px-20 lg:pb-24 lg:pt-10 ${withHeaderUnderlay ? headerUnderlay : ""}`}
+        className={`relative overflow-hidden bg-[#e10600] text-white ${withHeaderUnderlay ? headerUnderlay : ""}`}
       >
-        <div className="mx-auto max-w-5xl">
+        <div className="container pb-16 pt-6 sm:pb-20 sm:pt-8 lg:pb-24 lg:pt-10">
           <motion.div
             className="text-center"
             initial={{ opacity: 0, y: 24 }}
@@ -202,14 +202,14 @@ export default function AboutLiraBrand({
             viewport={{ once: true, amount: 0.6 }}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="relative inline-block">
+            <div className="relative inline-block max-w-full">
               <span
                 aria-hidden
-                className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[58%] select-none font-lemonmilk text-5xl uppercase text-white/25 sm:text-6xl lg:text-7xl"
+                className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[54%] select-none whitespace-nowrap font-lemonmilk text-[clamp(2.25rem,9vw,4.25rem)] uppercase leading-none text-white/25"
               >
                 {t.about.title}
               </span>
-              <h2 className="relative font-lemonmilk text-3xl uppercase text-white sm:text-4xl lg:text-5xl">
+              <h2 className="relative whitespace-nowrap font-lemonmilk text-[clamp(1.65rem,5.5vw,2.75rem)] uppercase leading-none text-white">
                 {t.about.title}
               </h2>
             </div>
@@ -218,7 +218,7 @@ export default function AboutLiraBrand({
                 <path d="M2 2L14 14L26 2" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </div>
-            <p className="mt-8 font-lemonmilk-regular text-sm uppercase tracking-[0.18em] sm:text-base">
+            <p className="mt-6 font-lemonmilk-regular text-xs uppercase tracking-[0.18em] sm:text-sm">
               {t.about.history}
             </p>
           </motion.div>
@@ -226,7 +226,7 @@ export default function AboutLiraBrand({
           {t.about.paragraphs.map((paragraph, index) => (
             <motion.p
               key={paragraph.slice(0, 24)}
-              className="mt-6 text-base font-bold leading-relaxed sm:text-lg"
+              className="mt-6 font-armin text-base font-semibold leading-relaxed sm:text-lg"
               initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.4 }}
@@ -243,10 +243,10 @@ export default function AboutLiraBrand({
             viewport={{ once: true, amount: 0.6 }}
             transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
           >
-            <p className="text-base font-bold leading-relaxed sm:text-lg">
+            <p className="font-armin text-base font-semibold leading-relaxed sm:text-lg">
               {t.about.mission}
             </p>
-            <p className="mt-2 text-base font-bold leading-relaxed sm:text-lg">
+            <p className="mt-2 font-armin text-base font-semibold leading-relaxed sm:text-lg">
               {t.about.vision}
             </p>
           </motion.div>
@@ -284,7 +284,7 @@ export default function AboutLiraBrand({
               ))}
             </motion.h2>
             <motion.p
-              className="mt-1 lg:mt-2 text-base sm:text-lg lg:text-xl text-black max-w-3xl font-armin leading-relaxed"
+              className="mt-1 font-armin text-base leading-relaxed text-black sm:text-lg lg:mt-2 lg:text-xl"
               variants={textVariants}
             >
               Lira Brand është një markë që përfaqëson traditën e çajit shqiptar dhe
@@ -309,7 +309,7 @@ export default function AboutLiraBrand({
         </div>
       </div>
 
-      <div className="w-full px-5 lg:px-16">
+      <div className="container w-full">
         <div className="grid grid-cols-3">
           {imageTextImageItems.map((item, index) => (
             <motion.div
@@ -351,7 +351,7 @@ export default function AboutLiraBrand({
         </div>
       </div>
 
-      <div className="w-full px-5 lg:px-16">
+      <div className="container w-full">
         <div className="grid grid-cols-3">
           {textImageTextItems.map((item, index) => (
             <motion.div
@@ -403,7 +403,7 @@ export default function AboutLiraBrand({
             animate={imageInView ? "visible" : "hidden"}
             variants={textVariants}
           >
-            <p className="text-base font-armin font-extrabold sm:text-lg lg:text-xl xl:text-2xl text-black leading-tight text-center max-w-4xl drop-shadow-lg">
+            <p className="text-center font-armin text-base font-extrabold leading-tight text-black drop-shadow-lg sm:text-lg lg:text-xl xl:text-2xl">
               <b className="font-foregen">Lira Brand</b> është një markë që përfaqëson traditën e <b className="text-red-800">çajit shqiptar dhe cilësinë e lartë. </b> 
               Me një histori të pasur dhe përvojë të gjatë në prodhimin e çajit, LiraBrand ofron 
               produkte që kombinojnë <b className="text-red-800">shijet tradicionale me inovacionin modern.</b> <br/><br/>Çdo produkt i LiraBrand 

@@ -18,7 +18,7 @@ export default function SecondQuality() {
   return (
     <section className="w-full relative overflow-hidden">
       {/* First Section: Image Left, Text Right */}
-      <div className=" mx-auto px-5 lg:px-16" ref={ref1}>
+      <div className="container" ref={ref1}>
         <div className="flex flex-col lg:flex-row items-stretch min-h-[500px] lg:min-h-[70vh]">
           {/* Left Side - Image */}
           <motion.div
@@ -84,7 +84,7 @@ export default function SecondQuality() {
 
               {/* Paragraph Text */}
               <motion.p
-                className="text-base sm:text-lg lg:text-xl text-gray-700 leading-tight font-armin max-w-2xl"
+                className="font-armin text-base leading-tight text-gray-700 sm:text-lg lg:text-xl"
                 initial={{ opacity: 0, x: 30 }}
                 animate={inView1 ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
                 transition={{ duration: 0.7, delay: 1.2 }}
@@ -131,7 +131,7 @@ export default function SecondQuality() {
       </div>
 
       {/* Second Section: Text Left, Image Right */}
-      <div className="mx-auto px-5 lg:px-16" ref={ref2}>
+      <div className="container" ref={ref2}>
         <div className="flex flex-col lg:flex-row items-stretch min-h-[500px] lg:min-h-[70vh]">
           {/* Left Side - Text Panel with Fill Animation */}
           <motion.div
@@ -195,7 +195,7 @@ export default function SecondQuality() {
 
               {/* Paragraph Text */}
               <motion.p
-                className="text-base sm:text-lg lg:text-xl text-black leading-tight font-armin max-w-2xl"
+                className="font-armin text-base leading-tight text-black sm:text-lg lg:text-xl"
                 initial={{ opacity: 0, x: -30 }}
                 animate={inView2 ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
                 transition={{ duration: 0.7, delay: 1.2 }}

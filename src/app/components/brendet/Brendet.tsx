@@ -51,7 +51,7 @@ export default function Brendet() {
 
   return (
     <section className="w-full bg-white">
-      <div className="mx-auto px-6 py-14 text-center sm:px-10 lg:px-16 lg:py-20">
+      <div className="container w-full py-14 text-center lg:py-20">
         <div className="relative mx-auto inline-block">
           <span
             aria-hidden
@@ -89,7 +89,7 @@ export default function Brendet() {
           ))}
         </div>
 
-        <div className="mx-auto mt-16 grid w-full max-w-7xl grid-cols-2 items-center justify-items-center gap-x-8 gap-y-14 md:grid-cols-4 md:gap-8">
+        <div className="mt-12 grid w-full grid-cols-2 items-end justify-items-center gap-x-2 gap-y-10 sm:gap-x-3 md:mt-14 md:grid-cols-4 md:gap-x-4 md:gap-y-8 lg:gap-x-5">
           {visible.map((brand, index) => (
             <motion.div
               key={`${brand.id}-${filter}`}
@@ -104,13 +104,13 @@ export default function Brendet() {
                 onClick={() => window.scrollTo(0, 0)}
                 className="group flex w-full flex-col items-center"
               >
-                <span className="flex h-40 w-full items-center justify-center sm:h-48 lg:h-64 xl:h-72">
+                <span className="flex h-44 w-full items-center justify-center sm:h-52 md:h-56 lg:h-70 xl:h-76 2xl:h-84">
                   <Image
                     src={brand.image}
                     alt={brand.alt}
-                    width={420}
-                    height={280}
-                    className="h-full w-auto max-w-full object-contain transition duration-500 group-hover:scale-[1.04]"
+                    width={480}
+                    height={320}
+                    className="h-full w-auto max-w-[92%] object-contain transition duration-500 group-hover:scale-[1.04] sm:max-w-[94%] md:max-w-full"
                   />
                 </span>
                 <span className="grid w-full grid-rows-[0fr] transition-[grid-template-rows,margin] duration-500 ease-out group-hover:mt-5 group-hover:grid-rows-[1fr]">

@@ -15,26 +15,49 @@ const brands = [
 ];
 
 const navBaseClass =
-  "cursor-pointer text-[11px] font-lemonmilk-regular uppercase tracking-[0.14em] transition-all duration-300 lg:text-[13px] xl:text-sm";
+  "cursor-pointer text-[11px] font-lemonmilk-regular font-light uppercase tracking-[0.14em] transition-all duration-300 lg:text-[13px] xl:text-sm";
+
+const sideNavBaseClass =
+  "cursor-pointer text-[11px] font-lemonmilk-regular font-light uppercase tracking-[0.14em] transition-all duration-300 lg:text-[13px] xl:text-sm";
 
 type BarVariant = "red" | "natural" | "frisch";
 
-function navLinkClass(active: boolean, bar: BarVariant) {
-  const activeColor =
-    bar === "natural" ? "text-[#4a3600]" : bar === "frisch" ? "text-[#fff9c4]" : "text-[#ffe566]";
-  if (active) {
-    return `${navBaseClass} ${activeColor} font-semibold underline decoration-2 underline-offset-[7px] decoration-current opacity-100`;
+function navActiveClass(bar: BarVariant) {
+  if (bar === "natural") {
+    return "text-[#3a2800]/90 font-light underline decoration-2 underline-offset-[7px] decoration-[#3a2800]/35";
   }
-  return `${navBaseClass} text-white opacity-90 hover:opacity-65`;
+  if (bar === "frisch") {
+    return "text-[#0f3d18]/85 font-light underline decoration-2 underline-offset-[7px] decoration-[#0f3d18]/35";
+  }
+  return "text-black/75 font-light underline decoration-2 underline-offset-[7px] decoration-black/30";
+}
+
+function navLinkClass(active: boolean, bar: BarVariant) {
+  if (active) {
+    return `${navBaseClass} ${navActiveClass(bar)} opacity-100`;
+  }
+  return `${navBaseClass} text-white hover:opacity-80`;
+}
+
+function sideNavLinkClass(active: boolean) {
+  if (active) {
+    return `${sideNavBaseClass} text-black/75 font-light underline decoration-2 underline-offset-[7px] decoration-black/30`;
+  }
+  return `${sideNavBaseClass} text-black/50 hover:text-black/65`;
 }
 
 function mobileNavClass(active: boolean, bar: BarVariant) {
-  const activeColor =
-    bar === "natural" ? "text-[#4a3600]" : bar === "frisch" ? "text-[#fff9c4]" : "text-[#ffe566]";
   if (active) {
-    return `font-lemonmilk-regular text-lg uppercase tracking-wide ${activeColor} font-semibold underline decoration-2 underline-offset-4`;
+    return `font-lemonmilk-regular text-lg font-light uppercase tracking-wide ${navActiveClass(bar)}`;
   }
-  return "font-lemonmilk-regular text-lg uppercase tracking-wide text-white/95";
+  return "font-lemonmilk-regular text-lg font-light uppercase tracking-wide text-white";
+}
+
+function mobileSideNavClass(active: boolean) {
+  if (active) {
+    return "font-lemonmilk-regular text-lg font-light uppercase tracking-wide text-black/75 underline decoration-2 underline-offset-4 decoration-black/30";
+  }
+  return "font-lemonmilk-regular text-lg font-light uppercase tracking-wide text-black/50";
 }
 
 const menuEase = [0.16, 1, 0.3, 1] as const;
@@ -98,13 +121,8 @@ export default function Header() {
   const isAboutActive = pathname === "/about";
   const isBrandsActive = pathname.startsWith("/products");
   const isContactActive = pathname === "/contact";
-  const langActiveClass =
-    barVariant === "natural"
-      ? "text-[#4a3600] font-semibold opacity-100"
-      : barVariant === "frisch"
-        ? "text-[#fff9c4] font-semibold opacity-100"
-        : "text-[#ffe566] font-semibold opacity-100";
-  const langIdleClass = "text-white opacity-45 hover:opacity-70";
+  const langActiveClass = "text-black/75 font-light";
+  const langIdleClass = "text-black/50 font-light hover:text-black/65";
 
   useEffect(() => {
     setIsMenuOpen(false);
@@ -251,22 +269,22 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => changeLanguage("eng")}
-                className={`${navBaseClass} ${lang === "eng" ? langActiveClass : langIdleClass}`}
+                className={`${sideNavBaseClass} ${lang === "eng" ? langActiveClass : langIdleClass}`}
               >
                 Eng
               </button>
               <button
                 type="button"
                 onClick={() => changeLanguage("alb")}
-                className={`${navBaseClass} ${lang === "alb" ? langActiveClass : langIdleClass}`}
+                className={`${sideNavBaseClass} ${lang === "alb" ? langActiveClass : langIdleClass}`}
               >
                 Alb
               </button>
             </div>
-            <span className="h-4 w-px bg-white/90" />
+            <span className="h-4 w-px bg-black/30" aria-hidden />
             <Link
               href="/contact"
-              className={navLinkClass(isContactActive, barVariant)}
+              className={sideNavLinkClass(isContactActive)}
               aria-current={isContactActive ? "page" : undefined}
             >
               {t.nav.contact}
@@ -377,7 +395,7 @@ export default function Header() {
                     </motion.div>
                   )}
                 </AnimatePresence>
-                <div className="flex items-center gap-4 pt-2">
+                <div className="flex flex-wrap items-center gap-4 border-t border-white/25 pt-4">
                   <button
                     type="button"
                     onClick={() => changeLanguage("eng")}
@@ -392,10 +410,10 @@ export default function Header() {
                   >
                     Alb
                   </button>
-                  <span className="h-4 w-px bg-white" />
+                  <span className="h-4 w-px bg-black/30" aria-hidden />
                   <Link
                     href="/contact"
-                    className={mobileNavClass(isContactActive, barVariant)}
+                    className={mobileSideNavClass(isContactActive)}
                     onClick={() => setIsMenuOpen(false)}
                     aria-current={isContactActive ? "page" : undefined}
                   >

@@ -6,7 +6,7 @@ export default function AboutPage() {
 
 
   return (
-    <div className="min-h-screen min-w-0 overflow-x-clip">
+    <div className="min-w-0 overflow-x-clip">
       <AboutLiraBrand withHeaderUnderlay />
     </div>
   );

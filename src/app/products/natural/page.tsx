@@ -19,9 +19,9 @@ export default function NaturalPage() {
   }, []);
 
   return (
-    <div className="min-w-0 max-w-full overflow-x-clip px-5 lg:px-16">
+    <div className="min-w-0 max-w-full overflow-x-clip">
       <div
-        className={`relative -mx-5 overflow-hidden bg-[#e4bc28] lg:-mx-16 ${headerUnderlay}`}
+        className={`relative overflow-hidden bg-[#e4bc28] ${headerUnderlay}`}
       >
         <div className="flex min-h-0 flex-col items-center justify-end pb-1 sm:pb-1.5">
           <h1 className="font-lemonmilk text-xl tracking-[0.22em] text-white sm:text-2xl lg:text-3xl">
@@ -51,7 +51,7 @@ export default function NaturalPage() {
         </svg>
 
         <div className="bg-[#f1d13b]">
-          <div className="mx-auto grid max-w-6xl items-start gap-8 px-2 pb-16 pt-0 sm:pb-20 lg:grid-cols-[minmax(0,1.12fr)_minmax(0,0.88fr)] lg:gap-4 lg:pb-24 xl:max-w-7xl xl:gap-8">
+          <div className="container grid items-start gap-8 pb-16 pt-0 sm:pb-20 lg:grid-cols-[minmax(0,1.12fr)_minmax(0,0.88fr)] lg:gap-4 lg:pb-24 xl:gap-8">
           <motion.div
             className="-mt-3 flex justify-center sm:-mt-5 lg:-mt-10 lg:justify-start xl:-mt-12"
             initial={{ opacity: 0, y: 28, rotate: -10 }}

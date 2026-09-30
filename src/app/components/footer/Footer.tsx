@@ -41,7 +41,7 @@ function SimpleFooter({
         variant === "natural" ||
         variant === "frisch" ||
         variant === "contact") && <div className="h-px bg-white/85" />}
-      <p className="px-6 py-6 text-center text-sm sm:text-base">
+      <p className="container py-6 text-center text-sm sm:text-base">
         © {year} LIRA MARK. {t.footer.reserved}
       </p>
     </footer>
@@ -76,7 +76,7 @@ export default function Footer() {
 
   return (
     <footer className="w-full overflow-x-clip bg-[#e10600] text-white">
-      <div className="px-6 py-12 sm:px-10 sm:py-14 lg:px-20 lg:py-16">
+      <div className="container py-12 sm:py-14 lg:py-16">
         <motion.p
           className="text-center text-sm font-bold uppercase tracking-[0.22em] sm:text-base"
           initial={{ opacity: 0, y: 12 }}
@@ -90,7 +90,7 @@ export default function Footer() {
         <div className="mt-6 h-px bg-white/90" />
 
         <motion.div
-          className="mt-10 grid max-w-4xl grid-cols-1 gap-10 sm:grid-cols-3 sm:gap-8"
+          className="mt-10 grid w-full grid-cols-1 gap-10 sm:grid-cols-3 sm:gap-8"
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
@@ -99,7 +99,7 @@ export default function Footer() {
           <div>
             <h3 className="text-sm font-extrabold uppercase tracking-wide sm:text-base">{t.footer.contact}</h3>
             <p className="mt-6 text-sm font-semibold">{t.footer.address}</p>
-            <p className="mt-2 max-w-60 text-sm leading-relaxed text-white/95">
+            <p className="mt-2 text-sm leading-relaxed text-white/95">
               RR.Epopeja e Jezercit, Ferizaj, Kosovo, 70000
             </p>
             <p className="mt-6 text-sm font-semibold">{t.footer.mobile}</p>
@@ -228,7 +228,7 @@ export default function Footer() {
             </svg>
           </button>
           {showMap && (
-            <div className="relative z-10 mx-auto mt-6 h-80 w-full max-w-4xl overflow-hidden bg-white sm:h-[420px]">
+            <div className="relative z-10 mt-6 h-80 w-full overflow-hidden bg-white sm:h-[420px]">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2314.4422524543024!2d21.085321474998832!3d42.36922343452427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13547faaa67990d3%3A0x70d2ce2534fac529!2sR206%2C%2070000!5e1!3m2!1sen!2sus!4v1763922723112!5m2!1sen!2sus"
                 title="Lira Mark location"

@@ -37,49 +37,69 @@ export default function KestrinaPage() {
   }, []);
 
   return (
-    <div className="min-w-0 max-w-full overflow-x-clip px-5 lg:px-16">
+    <div className="min-w-0 max-w-full overflow-x-clip">
       <div
-        className={`relative -mx-5 overflow-hidden bg-[#cf0207] pb-14 text-white sm:pb-16 lg:-mx-16 lg:pb-20 ${headerUnderlay}`}
+        className={`relative overflow-hidden bg-[#cf0207] pb-14 text-white sm:pb-16 lg:pb-20 ${headerUnderlay}`}
       >
-        <motion.div
-          className="pointer-events-none absolute left-1/2 top-[28%] h-[min(200vw,140rem)] w-[min(200vw,140rem)] -translate-x-1/2 -translate-y-1/2 opacity-45"
-          animate={{ rotate: 360 }}
-          transition={{ duration: 90, repeat: Infinity, ease: "linear" }}
-          style={{
-            background:
-              "repeating-conic-gradient(from 0deg at 50% 50%, rgba(0,0,0,0.26) 0deg 12deg, transparent 12deg 30deg)",
-          }}
-        />
+        {/* Starburst rays — origin above center, soft core, slow spin */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <motion.div
+            className="absolute left-1/2 top-[30%] h-[240vmax] w-[240vmax] -translate-x-1/2 -translate-y-1/2 sm:top-[28%] lg:top-[26%]"
+            animate={{ rotate: 360 }}
+            transition={{ duration: 96, repeat: Infinity, ease: "linear" }}
+            style={{
+              background:
+                "repeating-conic-gradient(from 0deg at 50% 50%, #d80309 0deg 7deg, #b10105 7deg 14deg)",
+            }}
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "radial-gradient(circle at 50% 28%, #cf0207 0%, #cf0207 16%, rgba(207,2,7,0.85) 24%, transparent 52%)",
+            }}
+          />
+        </div>
+
+        {/* Soft radial highlight over the rays */}
         <div
           className="pointer-events-none absolute inset-0"
           style={{
-            background: "radial-gradient(circle at 50% 32%, rgba(255,255,255,0.14) 0%, transparent 58%)",
+            background:
+              "radial-gradient(circle at 50% 32%, rgba(255,255,255,0.10) 0%, transparent 58%)",
           }}
         />
 
-        <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          <p className="absolute left-[1%] top-[44%] max-w-[52%] font-lemonmilk text-[clamp(2.75rem,10vw,8rem)] uppercase leading-[0.82] text-transparent [-webkit-text-stroke:1.5px_rgba(255,255,255,0.24)] lg:left-[3%] lg:top-[46%]">
+        {/* Giant background text */}
+        <div className="pointer-events-none absolute inset-0 z-1 overflow-hidden">
+          <p className="absolute left-[1%] top-[42%] max-w-[52%] font-lemonmilk text-[clamp(2.75rem,10vw,8rem)] uppercase leading-[0.82] text-black/15 lg:left-[3%] lg:top-[46%]">
             {k.loveBox}
             <br />
             <span className="text-[0.4em]">{k.cubes}</span>
           </p>
-          <p className="absolute right-[1%] top-[46%] max-w-[52%] text-right font-lemonmilk text-[clamp(2.25rem,8.5vw,6rem)] uppercase leading-[0.88] text-transparent [-webkit-text-stroke:1.5px_rgba(255,255,255,0.24)] lg:right-[3%]">
+          <p className="absolute right-[1%] top-[46%] max-w-[52%] text-right font-lemonmilk text-[clamp(2.25rem,8.5vw,6rem)] uppercase leading-[0.88] text-black/15 lg:right-[3%]">
             {k.familyPack}
             <br />
             <span className="text-[0.36em]">{k.classicWafers}</span>
           </p>
         </div>
 
-        <div className="relative z-10 mx-auto max-w-7xl px-5 lg:px-16">
+        {/* Content */}
+        <div className="container relative z-10 w-full">
+          {/* Centered KESTRINA title + arrow + logo — overlays the product grid */}
           <motion.div
-            className="flex flex-col items-center text-center"
+            className="relative z-20 flex -mb-6 flex-col items-center text-center sm:-mb-10 lg:-mb-18 xl:-mb-20"
             initial={{ opacity: 0, y: -16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease }}
           >
-            <h1 className="font-lemonmilk text-2xl tracking-[0.18em] sm:text-3xl lg:text-[2.35rem]">{k.brand}</h1>
+            <h1 className="font-lemonmilk text-3xl tracking-[0.18em] sm:text-4xl lg:text-[2.75rem] xl:text-5xl">
+              {k.brand}
+            </h1>
+
+            {/* Down arrow */}
             <motion.svg
-              className="mt-1.5 h-5 w-5 text-white/90"
+              className="mt-1 h-5 w-5 text-white/90 sm:h-6 sm:w-6"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -90,22 +110,37 @@ export default function KestrinaPage() {
             >
               <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
             </motion.svg>
+
+            {/* Kestrina logo below arrow */}
+            <Image
+              src="/assets/kestrina logo.png"
+              alt="Kestrina"
+              width={480}
+              height={160}
+              className="mt-1 h-20 w-auto sm:h-24 md:h-28 lg:h-32 xl:h-52"
+              priority
+            />
           </motion.div>
 
-          <motion.div
-            className="pointer-events-none absolute left-1/2 z-20 hidden -translate-x-6 sm:block lg:-translate-x-10"
-            style={{ top: "clamp(5.5rem, 14vw, 9rem)" }}
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.35, ease }}
-          >
-            <CurvedArrow className="h-18 w-6 rotate-180 lg:h-25 lg:w-8 xl:h-28 xl:w-9" />
-          </motion.div>
-
-          <div className="-mt-1 grid items-start gap-6 sm:mt-0 lg:-mt-4 lg:grid-cols-2 lg:gap-4 xl:gap-8">
-            <div className="relative flex flex-col items-center lg:items-start">
+          {/* Product grid flows naturally under the centered block */}
+          <div className="-mt-2 grid items-start gap-4 sm:-mt-4 lg:grid-cols-2 lg:gap-8 lg:-mt-6 xl:gap-12 xl:-mt-8">
+            {/* Left column: product + slogan */}
+            <div className="relative mt-0 flex flex-col items-center sm:-mt-2 lg:-mt-10 lg:items-start xl:-mt-12">
+              {/* Curved arrow — closer to product */}
               <motion.div
-                className="relative z-10 w-full max-w-lg lg:max-w-none xl:max-w-none"
+                className="pointer-events-none absolute -top-12 z-20 hidden sm:block sm:-top-16 md:-top-20 lg:-top-24 xl:-top-28 2xl:-top-32"
+                style={{
+                  left: "58%",
+                }}
+                initial={{ opacity: 0, y: -8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.35, ease }}
+              >
+                <CurvedArrow className="h-16 w-5 rotate-180 lg:h-20 lg:w-7 xl:h-24 xl:w-8" />
+              </motion.div>
+
+              <motion.div
+                className="relative z-10 w-full max-w-lg lg:max-w-none lg:-translate-y-60 xl:max-w-none"
                 initial={{ opacity: 0, y: 24, rotate: -6 }}
                 whileInView={{ opacity: 1, y: 0, rotate: -8 }}
                 viewport={{ once: true, amount: 0.4 }}
@@ -120,14 +155,14 @@ export default function KestrinaPage() {
                     alt="Kestrina Love Box Cubes"
                     width={1000}
                     height={1000}
-                    className="mx-auto h-[min(58vh,22rem)] w-auto max-w-none object-contain object-top drop-shadow-[0_28px_40px_rgba(0,0,0,0.35)] sm:h-[min(62vh,26rem)] lg:mx-0 lg:h-[min(70vh,34rem)] xl:h-[min(74vh,40rem)] 2xl:h-[min(78vh,44rem)]"
+                    className="mx-auto h-[min(52vh,20rem)] w-auto max-w-none object-contain object-center drop-shadow-[0_28px_40px_rgba(0,0,0,0.35)] sm:h-[min(58vh,24rem)] lg:mx-0 lg:h-[min(70vh,34rem)] lg:object-top xl:h-[min(74vh,40rem)] 2xl:h-[min(78vh,44rem)]"
                     priority
                   />
                 </motion.div>
               </motion.div>
 
               <motion.h2
-                className="relative z-10 mt-5 max-w-lg text-center font-lemonmilk text-[1.65rem] font-bold uppercase leading-[1.05] tracking-wide text-white [-webkit-text-stroke:2.5px_#000] sm:text-3xl lg:mt-7 lg:text-left lg:text-[2.05rem] xl:text-4xl"
+                className="relative z-10 mt-2 max-w-lg text-center font-lemonmilk text-[1.65rem] font-bold uppercase leading-[1.05] tracking-wide text-white [-webkit-text-stroke:2.5px_#000] sm:mt-0 sm:text-3xl lg:-mt-24 lg:text-left lg:text-[2.05rem] xl:-mt-28 xl:text-4xl 2xl:-mt-32"
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.5 }}
@@ -139,21 +174,15 @@ export default function KestrinaPage() {
               </motion.h2>
             </div>
 
+            {/* Right column: body text */}
             <motion.div
-              className="relative z-10 flex min-w-0 flex-col items-start justify-center gap-5 lg:gap-6 lg:pl-2 xl:pl-6"
+              className="relative z-10 flex min-w-0 flex-col items-start justify-center gap-5 lg:gap-6 lg:pl-2 lg:pt-6 xl:pl-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.35 }}
               transition={{ duration: 0.75, delay: 0.25, ease }}
             >
-              <Image
-                src="/assets/kestrina logo.png"
-                alt="Kestrina"
-                width={480}
-                height={160}
-                className="h-20 w-auto sm:h-24 md:h-28 lg:h-32 xl:h-36"
-              />
-              <p className="max-w-xl font-armin text-base leading-relaxed text-white/95 sm:text-lg lg:text-xl lg:leading-relaxed">
+              <p className="max-w-xl font-armin text-base leading-[1.35] text-white/95 sm:text-lg lg:text-xl lg:leading-[1.38]">
                 {k.body}
               </p>
             </motion.div>

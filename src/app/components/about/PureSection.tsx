@@ -68,8 +68,8 @@ export default function PureSection() {
   };
 
   return (
-    <section className="relative w-full overflow-x-clip py-16 sm:py-24 lg:py-32 px-4 lg:px-16">
-      <div className="relative w-full max-w-7xl mx-auto flex items-center justify-center px-4 sm:px-6 lg:px-16" ref={ref}>
+    <section className="relative w-full overflow-x-clip py-16 sm:py-24 lg:py-32">
+      <div className="container relative flex w-full items-center justify-center" ref={ref}>
         <motion.div
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
